@@ -229,14 +229,27 @@
                     color: #ffffff;
                 }
 
+                .result-assets {
+                    display: inline-flex;
+                    padding-top: 5px;
+                }
+
+                .result-assets img {
+                    margin-right: 5px;
+                    width: 20%;
+                    height: auto;
+                }
+
                 .result-img {
                     padding: 10px;
                     border-right: 2px solid #E4E7EC;
+                    margin-top: auto;
+                    margin-bottom: auto;
                 }
         
                 .result-img img {
-                    width: 100px;
-                    height: 100px;
+                    width: 150px;
+                    height: 150px;
                     border-radius: 5px;
                 }
         
