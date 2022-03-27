@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Seek Stack</title>
+        <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata:400">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="css/search_page.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".dropdown-default").click(function(){
+                    $(".dropdown-menu ul").addClass("active");
+                });
+                
+                $(".dropdown-menu ul li").click(function(){
+                    var text = $(this).text();
+                    $(".dropdown-default").text(text);
+                    $(".dropdown-menu ul").removeClass("active");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <header id="header">
+            <div class="container">
+                <div id="logo">
+                    <h1>Seek Stack</h1>
+                </div>
+                <nav>
+                    <div class="innertube">
+                    <ul>
+                        <li><a href="#" class="link">Home</a></li>
+                        <li><a href="#" class="link">About Us</a></li>
+                        <li><a href="#" class="link">Contact Us</a></li>
+                        <li>
+                            <a href="#" class="button-login">Login / Sign Up</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+		</header>
+        
+        <main>
+            <div class="container">
+                <div class="banner-main">
+                    <img src="image/banner-searchpage.jpg" alt="banner" />
+                    <div class="search-box">
+                        <div class="dropdown-menu">
+                            <div class="dropdown-default">Categories</div>
+                            <ul>
+                                <li>Blog</li>
+                                <li>Forum</li>
+                                <li>News</li>
+                                <li>Shopping</li>
+                                <li>Travel</li>
+                            </ul>
+                        </div>
+                        <div class="search-form">
+                            <input type="text" class="search-input" placeholder="Search for..." />
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-background">
+                <div class="result-wrapper" id="entry1-idntimes">
+                    <div class="result-img">
+                        <img src="image/logo/idn_times.png" alt="result-img" />
+                    </div>
+                    <div class="result-content">
+                        <div class="result-title">IDN Times</div>
+                            <a href="#" class="result-tags">Blog</a>
+                            <a href="#" class="result-tags">News</a>
+                            <p>
+                                IDN Times is a leading Indonesian news media, 
+                                publishing news and information on the latest events in Indonesia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-wrapper" id="entry2-tokopedia">
+                    <div class="result-img">
+                        <img src="image/logo/tokopedia.png" alt="result-img" />
+                    </div>
+                    <div class="result-content">
+                        <div class="result-title">Tokopedia</div>
+                            <a href="#" class="result-tags">Shopping</a>
+                            <p>
+                                Tokopedia is a leading online marketplace for Indonesia's 
+                                largest and fastest growing retail market.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-wrapper" id="entry3-gojek">
+                    <div class="result-img">
+                        <img src="image/logo/gojek.png" alt="result-img" />
+                    </div>
+                    <div class="result-content">
+                        <div class="result-title">Gojek</div>
+                            <a href="#" class="result-tags">Travel</a>
+                            <a href="#" class="result-tags">Shopping</a>
+                            <p>
+                                Gojek is a leading online transportation for Indonesia's 
+                                daily transportation and delivery needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="container">
+               <div class="footer-menu">
+                   <a href="#" class="footer-menu-link">Terms of Use</a>
+                   <a href="#" class="footer-menu-link">Privacy Policy</a>
+                   <a href="#" class="footer-menu-link">Cyber Guideline</a>
+               </div>
+               <p class="footer-copyright">
+                   Copyright &copy; 2022 | <strong>Kelompok 9</strong>
+               </p> 
+           </div>
+        </footer>
+    </body>
+</html>
