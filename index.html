@@ -9,7 +9,9 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <script src="js/index.js"></script>
         <title>Seek Stack</title>
 	</head>
 	
@@ -26,7 +28,10 @@
                         <a href="#" class="link">About Us</a>
                         <a href="#" class="link">Contact Us</a>
                         <a href="login.html" class="button-login">Sign In / Sign Up</a>
-                        </ul>
+                        <div class="search-box-smol">
+                            <input id="search-input-smol" type="text" placeholder="Search for..." value=""/>
+                            <i class="fa fa-search" onclick="startSearch()"></i>    
+                        </div>
                     </nav>
 
                 </div>

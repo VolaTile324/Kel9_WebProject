@@ -80,6 +80,31 @@ a{
     border: 2px solid #425465;
 }
 
+.search-box-smol {
+    width: 240px;
+    height: 24px;
+    border: 2px solid #425465;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.search-box-smol .fa{
+    display: inline;
+    font-size: 18px;
+    color: #5078ef;
+    cursor: pointer;
+}
+
+#search-input-smol {
+    width: 210px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    font-family: Poppins;
+}
+
+
 
 /*Ini Bagian Footer*/
 .footer{
@@ -132,7 +157,7 @@ a{
     }
 }
 
-@media only screen and (max-width: 485px) {
+@media only screen and (max-width: 800px) {
     .nav{
         flex-wrap: wrap;
     }
