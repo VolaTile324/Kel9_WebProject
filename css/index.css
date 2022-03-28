@@ -1,253 +1,114 @@
-                /*IE6 fix*/
-		* html body{
-			padding: 100px 0 0 0; /* Set the first value to the height of the header */
-		}
-		
-		* html main{ 
-			height: 100%; 
-			width: 100%; 
-		}
-		.button-login{
-            background-color:#425465;
-            color: white;  
-            float:left;
-            border: 2px solid #425465;
-            border-radius: 5px;
-            letter-spacing: 1px;
-            font-weight: 400;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 8px;
-            transition-duration: 0.1s;
-        }
+#content-title {
+    padding-top: 50px;
+    padding-bottom: 2px;
+    text-align: center;
+}
 
-        .button-login:hover {
-        background-color: white;
-        color: #425465;
-        }
-                
-	
-		
-        body {
-			margin: 0;
-			padding: 0;
-			line-height: 1.5em;
-            font-family: Poppins;
-		}
+#content-desc {
+    text-align: center;
+}
 
-        p{
-            color: #545569;
-            font-size: 16px;
-            margin: 0;
-        }
+.banner-image{
+    height: 450px;
+}
 
-        a{
-            text-decoration: none;
-        }
-        
-		
-		.container {
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-		}
+.banner-image img{
+    float: right;
+    width: 50%;
+}
 
-        .link{
-            color: #545569;
-        }
+.banner{ 
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin-top: 75px;
+}
 
-        .link:hover{
-            color: #8F91AB;
-        }
-		
-		#logo {
-			padding:10px;
-			float:left;
-		}
+.bannerdesc {
+    font-size: 20px;
+    margin:16px 0 40px 0;
+}
 
-        #content-title {
-            padding-top: 50px;
-            padding-bottom: 2px;
-            text-align: center;
-        }
-
-        #content-desc {
-            text-align: center;
-        }
-		
-		.innertube {
-			margin: 15px; /* Provides padding for the content */
-		}
-
-        .banner-image{
-            height: 450px;
-        }
-
-        .banner-image img{
-            float: right;
-            width: 500px;
-            height: 320px;
-        }
-
-        .banner{ 
-            width: 600px;
-            text-align: center;
-            float: left;
-            margin-top: 75px;
-        }
-
-        .bannerdesc {
-            font-size: 20px;
-            margin:16px 0 40px 0;
-        }
-
-		    /* Menu */
-		nav { 
-			margin:0 auto; 
-			padding:0; 
-			float:right;
-		}
-		nav ul { 
-			list-style:none; 
-			padding:0; 
-			float:left;
-		}
-		nav ul li { 
-			margin:0; 
-			padding:0 0 0 8px; 
-			float:left;
-		}
-		nav ul li a { 
-			display:block; 
-			margin:0; 
-			padding:8px 20px; 
-			color:darkgreen; 
-			text-decoration:none;
-		}
-		nav ul li.active a, #top-nav ul li a:hover { 
-			color:#d3d3f9;
-		}
-				
 
 /* Ini Bagian Price */
-        .price-containers{
-            display: flex;
-            justify-content: center;
-            padding: 40px;
-        }
-
-        .price-container{
-            padding: 24px;
-            margin: 24px;
-            height: 100%;
-            width: 344px;
-            border-radius: 5px;
-            padding: 24px;
-            text-align: center;
-            border-radius: 10px;
-            background: #E4E7EC66;
-        }
-
-        .price-container sup{
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .price-container p{
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .price-nominal{
-            font-size: 40px;
-            font-weight: bold;
-        }
-
-        .list-price{
-            text-align: left;
-            line-height: 30px;
-        }
-
-        .button-get-started{
-            height: 48px;
-            width: 296px;
-            left: 24px;
-            top: 400px;
-            border-radius: 5px;
-            padding: 12px, 32px, 12px, 32px;
-            letter-spacing: 1px;
-            border-style: none;
-            font-size: 20px;
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-        }
-
-        #button-monthly{
-            border: 2px solid #E4E7EC;
-            background-color: #E4E7EC;
-            color: #545569;
-            transition-duration: 0.1s;
-        }
-
-        #button-monthly:hover{
-            border: 2px solid #545569;
-            background-color: #ffffff;
-            color: #545569;
-        }
-        
-        #button-yearly{
-            border: 2px solid #0B6CE3;
-            background-color: #0B6CE3;
-            color: white;
-            transition-duration: 0.1s;
-        }
-
-        #button-yearly:hover{
-            border: 2px solid #0B6CE3;
-            background-color: #ffffff;
-            color: #0B6CE3;
-        }
-
-        .checked-list{
-            list-style-image: url('../image/list/checked.png');
-        }
-
-        .unchecked-list{
-            list-style-image: url('../image/list/unchecked.png');
-        }
-/*Ini Bagian Footer*/
-
-.footer {
-    background: #222433;
-    padding: 20px 20px 20px 20px;
-    height: 26px;
-    color: #ffffff;
+.price-containers{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 30px auto;
 }
 
-.footer-menu{
-    list-style: none;
-    float:left;
+.price-container{
+    background: #E4E7EC66;
+    width: 300px;
+    margin: 0 20px;
+    padding: 20px 20px;
+    border-radius: 10px;
 }
 
-.footer-menu-link{
-    color:#ffffff;
-    margin-right: 20px;
+.price-container sup{
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.footer-menu-link:hover{
-    color:#CBCCDA;
+.price-container p{
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.footer-copyright{
-    color:#ffffff;
-    float: right;
+.price-nominal{
+    font-size: 40px;
+    font-weight: bold;
 }
+
+.list-price{
+    text-align: left;
+    line-height: 30px;
+}
+
+.button-get-started{
+    border-radius: 5px;
+    padding: 12px 32px 12px 32px;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+#button-monthly{
+    border: 2px solid #E4E7EC;
+    background-color: #E4E7EC;
+    color: #545569;
+}
+
+#button-monthly:hover{
+    border: 2px solid #545569;
+    background-color: #ffffff;
+    color: #545569;
+}
+
+#button-yearly{
+    border: 2px solid #0B6CE3;
+    background-color: #0B6CE3;
+    color: white;
+    transition-duration: 0.1s;
+}
+
+#button-yearly:hover{
+    border: 2px solid #0B6CE3;
+    background-color: #ffffff;
+    color: #0B6CE3;
+}
+
+.checked-list{
+    list-style-image: url('image/list/checked.png');
+}
+
+.unchecked-list{
+    list-style-image: url('image/list/unchecked.png');
+}
+
 
 /* Subscribe Button */
 .subsbutton {
@@ -275,28 +136,30 @@
 
 .cmplist-blockset {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    width: 83%;
+    margin: 0 auto;
 }
 
 .cmplist-container {
-    width: 360px;
-    height: 300px;
-    padding: 20px;
+    margin: 20px 10px;
 }
 
 .cmplist-img-container {
     display: block;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 100%;
+    overflow: hidden;
+    border:2px solid #ddd;
 }
 
 .cmplist-img-container img{
     width: 100px;
     height: 100px;
-    border-radius: 50%;
 }
 
 .cmplist-title-container{
@@ -321,4 +184,28 @@
 .cmplist-lower-container img{
     width: 70px;
     height: 70px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .cmplist-blockset{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .banner{
+        width: 100%;
+    }
+    .banner-image{
+        height: 350px;
+    }
+    .banner-image img{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .price-container{
+        width: 95%;
+    }
 }

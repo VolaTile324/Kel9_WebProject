@@ -1,0 +1,143 @@
+* html body{
+    padding: 100px 0 0 0; /* Set the first value to the height of the header */
+}
+
+* html main{ 
+    height: 100%; 
+    width: 100%; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-family: Poppins;
+}
+
+p{
+    color: #545569;
+    font-size: 16px;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.link{
+    color: #545569;
+}
+
+.link:hover{
+    color: #8F91AB;
+}
+
+.margin-bottom15px {
+    margin-bottom: 15px;
+}
+
+/* header */
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 0;
+}
+
+#logo h1{
+    margin: 0;
+}
+
+.nav{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav a{
+    margin: 0 10px 0 10px;
+}
+
+.button-login{
+    background-color:#425465;
+    border: 2px solid #425465;
+    color: white;  
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.button-login:hover {
+    background-color: white;
+    color: #425465;
+    border: 2px solid #425465;
+}
+
+
+/*Ini Bagian Footer*/
+.footer{
+    background: #222433;
+    padding: 20px 0 20px 0;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-menu-link{
+    color: #ffffff;
+    margin: 0 10px 0 10px;
+}
+
+.footer-copyright{
+    color: #ffffff;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #header{        
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    }
+    .header{
+        display: block;
+        padding: 20px 0;
+    }
+
+    #logo{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav{
+        justify-content: center;
+    }
+
+    .footer-content{
+        display: block;
+        text-align: center;
+    }
+
+    .footer-menu-link{
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .nav{
+        flex-wrap: wrap;
+    }
+
+    .nav a{
+        margin-bottom: 10px;
+    }
+}

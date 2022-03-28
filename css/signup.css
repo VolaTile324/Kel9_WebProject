@@ -1,0 +1,83 @@
+.signup-header{
+    font-size: 30px;
+    margin-bottom: auto;
+    padding: 0px 0px 30px 0px;
+    color: #313244;
+    text-align: center;
+}
+
+.signup-container{
+    width: 30%;
+    height: auto;
+    font-family: Poppins;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 7px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 30px 50px 55px 50px;
+    margin: auto;
+}
+
+.signup-container label{
+    display: contents;
+}
+
+.signup-container input{
+    border: 1px solid #313244; 
+    box-sizing: border-box; 
+    border-radius: 8px;
+    height: 43px;
+    width: 100%;
+    padding: 0px 38px 0px 38px;
+}
+
+.padding-form {
+    padding: 0 38 0 38;
+    font-size: 2opx;
+  }
+
+a{
+    text-decoration: none;
+}
+
+.button-signup {
+  width: 100%;
+  background: #313244;
+  border: 1px solid #313244;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#pwmessage{
+    color: #222433;
+    font-size: 13px;
+    margin: auto;
+    display: inline-block;
+}
+
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+    .signup-container {
+      width: 40%;
+    }
+}
+  
+  @media only screen and (max-width: 768px) {
+    .header{
+      height: 38px;
+    }
+    .signup-container {
+      width: 65%;
+    }
+}
