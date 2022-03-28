@@ -7,22 +7,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/search_page.css" rel="stylesheet" type="text/css" />
         <link href="css/general.css" rel="stylesheet" type="text/css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $(".dropdown-default").click(function(){
-                    $(".dropdown-menu ul").addClass("active");
-                });
-                
-                $(".dropdown-menu ul li").click(function(){
-                    var text = $(this).text();
-                    $(".dropdown-default").text(text);
-                    $(".dropdown-menu ul").removeClass("active");
-                });
-            });
-        </script>
+        <script src="js/search-filter.js"></script>
     </head>
     <body>
         <header id="header">
@@ -48,18 +36,21 @@
                 <div class="banner-main">
                     <img src="image/banner-searchpage.jpg" alt="banner" />
                     <div class="search-box">
-                        <div class="dropdown-menu">
-                            <div class="dropdown-default">Categories</div>
-                            <ul>
-                                <li>Blog</li>
-                                <li>Forum</li>
-                                <li>News</li>
-                                <li>Shopping</li>
-                                <li>Travel</li>
-                            </ul>
+                        <div class="dropdown-menu" onclick="showDropdown()">
+                            <div id="dropdown-default">Categories</div>
+                            <div id="dropdown-list">
+                                <ul>
+                                    <li onclick="setBlog()">Blog</li>
+                                    <li onclick="setForum()">Forum</li>
+                                    <li onclick="setNews()">News</li>
+                                    <li onclick="setShopping()">Shopping</li>
+                                    <li onclick="setTravel()">Travel</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="search-form">
-                            <input type="text" class="search-input" placeholder="Search for..." />
+                            <input id="search-input" type="text" placeholder="Search for..." value=""/>
+                            <i class="fa fa-search" onclick="initSearch()"></i>
                         </div>    
                     </div>
                 </div>
