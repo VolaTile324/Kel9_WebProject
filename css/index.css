@@ -102,11 +102,11 @@
 }
 
 .checked-list{
-    list-style-image: url('image/list/checked.png');
+    list-style-image: url('../image/list/checked.png');
 }
 
 .unchecked-list{
-    list-style-image: url('image/list/unchecked.png');
+    list-style-image: url('../image/list/unchecked.png');
 }
 
 

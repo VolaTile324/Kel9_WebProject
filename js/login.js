@@ -2,14 +2,14 @@ function getInfo() {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
     
-    if(email=="rpl@upi.com"&& password=="stingak")
+    if(email == "rpl@upi.com" && password == "stingak")
     {
-        alert("You have successfully logged in.");
-        return false;
+        window.open("index.html", "_self");
     }
     else
     {
-        alert("Invalid email and/or password")
+        alert("Invalid email and/or password");
+        return false;
     }
 }
 
