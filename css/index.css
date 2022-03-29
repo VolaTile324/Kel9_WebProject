@@ -138,7 +138,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 83%;
+    width: 73%;
     margin: 0 auto;
 }
 
@@ -188,7 +188,7 @@
 
 @media only screen and (max-width: 1024px) {
     .cmplist-blockset{
-        width: 85%;
+        width: 75%;
     }
 }
 
