@@ -12,6 +12,12 @@
         <!----===== Import Iconscout CSS ===== -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
+        <!----===== Import Datatables===== -->
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
         <!----===== Title ===== -->
         <title>Admin Panel | Seek Stack</title>
 	</head>
@@ -120,6 +126,16 @@
                             <span class="text">Total Client</span>
                             <span class="number">10,120</span>
                         </div>
+                        <div class="box box4">
+                            <i class="uil uil-thumbs-up"></i>
+                            <span class="text">Total Subscriber</span>
+                            <span class="number">1,120</span>
+                        </div>
+                        <div class="box box5">
+                            <i class="uil uil-thumbs-up"></i>
+                            <span class="text">Total Karyawan</span>
+                            <span class="number">52,230</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -129,9 +145,398 @@
                         <i class="uil uil-clock-three"></i>
                         <span class="text">Aktivitas Terakhir</span>
                     </div>
-    
+                    <script>
+                        $(document).ready(function(){
+                            $('#dataTable').DataTable();
+                        });
+                    </script>
                     <div class="activity-data">
-                        <div class="data names">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th width="150">Company</th>
+                                        <th width="400">Detail</th>
+                                        <th width="120">Added</th>
+                                        <th width="90">Type</th>
+                                        <th width="120">Status</th>
+                                        <th style="text-align: right;">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div class="data email"></div>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Instagram</td>
+                                        <td class="align-middle">Instagram is an American photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.</td>
+                                        <td class="align-middle">2022-02-14</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Tokopedia</td>
+                                        <td class="align-middle">Tokopedia merupakan perusahaan perdagangan elektronik atau sering disebut toko daring.</td>
+                                        <td class="align-middle">2021-02-18</td>
+                                        <td class="align-middle">Member</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">Gojek</td>
+                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">2022-02-12</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Active</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">IDN Times</td>
+                                        <td class="align-middle">DN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.</td>
+                                        <td class="align-middle">1992-07-11</td>
+                                        <td class="align-middle">New</td>
+                                        <td class="align-middle">Disabled</td>                                      
+                                        <td width="220" style="text-align: right;">
+                                            <a href="<?= base_url(); ?>index.php/admin/siswa/ubah/<?= $data->rizky_nisn?>"
+                                             class="btn btn-small"><i class="fa fa-edit"></i> Edit</a>
+                                            <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
+                                             href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                </div>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                        <!-- <div class="data names">
                             <span class="data-title">Company</span>
                             <span class="data-list">Gojek</span>
                             <span class="data-list">Instagram</span>
@@ -181,7 +586,7 @@
                             <span class="data-list">Lorem Ipsum</span>
                             <span class="data-list">Lorem Ipsum</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

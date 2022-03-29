@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/search_page.css" rel="stylesheet" type="text/css" />
         <link href="css/general.css" rel="stylesheet" type="text/css" />
-        <script src="js/search-filter.js"></script>
     </head>
     <body>
         <header id="header">
@@ -56,13 +55,67 @@
                 </div>
             </div>
 
+            <div id="modal-idn" class="modal" onclick="closeModal()">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-pic-style">
+                        <img src="image/logo/idn_times.png" alt="modal-idn-picture" />
+                    </div>
+                    <h1>IDN Times</h1>
+                    <p>
+                        IDN Times is a leading Indonesia news media, 
+                        publishing news and information on the latest events in Indonesia.
+                        <br><br>
+                        It was founded in 2014 from parent organization of IDN Media, 
+                        usually consisting news closely related to Millenials and Gen-Z.
+                    </p>
+                    <button class="modal-company-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div id="modal-tokopedia" class="modal" onclick="closeModal()">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-pic-style">
+                        <img src="image/logo/tokopedia.png" alt="modal-tokopedia-picture" />
+                    </div>
+                    <h1>Tokopedia</h1>
+                    <p>
+                        Tokopedia is an online marketplace that allows people to shop their favorite 
+                        items easily through the Internet.
+                        <br><br>
+                        It was founded in 2009 by William Tanuwijaya, this online marketplace recently 
+                        merged with Gojek, forming the new enterprise known as GoTo Group.
+                    </p>
+                    <button class="modal-company-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div id="modal-gojek" class="modal" onclick="closeModal()">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-pic-style">
+                        <img src="image/logo/gojek.png" alt="modal-gojek-picture" />
+                    </div>
+                    <h1>Gojek</h1>
+                    <p>
+                        Gojek is an online delivery service that connects people with goods and services 
+                        through motorcycle transport.
+                        <br><br>
+                        It was founded in 2010 by Nadiem Makarim, Gojek adopted Super App model, providing
+                        even more services not only as delivery services, but also online payment.
+                    </p>
+                    <button class="modal-company-btn">Learn More</button>
+                </div>
+            </div>
+            
             <div class="result-background">
                 <div class="result-wrapper" id="entry1-idntimes">
                     <div class="result-img">
                         <img src="image/logo/idn_times.png" alt="result-img" />
                     </div>
                     <div class="result-content">
-                        <div class="result-title">IDN Times</div>
+                        <div class="result-title" onclick="openModalIDN()">IDN Times</div>
                             <a href="#" class="result-tags">Blog</a>
                             <a href="#" class="result-tags">News</a>
                             <p>
@@ -83,7 +136,7 @@
                         <img src="image/logo/tokopedia.png" alt="result-img" />
                     </div>
                     <div class="result-content">
-                        <div class="result-title">Tokopedia</div>
+                        <div class="result-title" onclick="openModalTokopedia()">Tokopedia</div>
                             <a href="#" class="result-tags">Shopping</a>
                             <p>
                                 Tokopedia is a leading online marketplace for Indonesia's 
@@ -103,7 +156,7 @@
                         <img src="image/logo/gojek.png" alt="result-img" />
                     </div>
                     <div class="result-content">
-                        <div class="result-title">Gojek</div>
+                        <div class="result-title" onclick="openModalGojek()">Gojek</div>
                             <a href="#" class="result-tags">Travel</a>
                             <a href="#" class="result-tags">Shopping</a>
                             <p>
@@ -136,5 +189,7 @@
                </div>
            </div>
        </footer>
+
+       <script src="js/search-filter.js"></script>
     </body>
 </html>
