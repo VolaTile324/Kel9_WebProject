@@ -1,3 +1,28 @@
+<?php
+ 
+// Starting the session, to use and
+// store data in session variable
+session_start();
+  
+// If the session variable is empty, this
+// means the user is yet to login
+// User will be sent to 'login.php' page
+// to allow the user to login
+/* if (!isset($_SESSION['session_user'])) {
+    $_SESSION['msg'] = "You have to log in first";
+} */
+  
+// Logout button will destroy the session, and
+// will unset the session variables
+// User will be headed to 'login.php'
+// after logging out
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['session_user']);
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <!-- Template by html.am -->
 <html>
@@ -27,7 +52,19 @@
                         <a href="#" class="link">Home</a>
                         <a href="#" class="link">About Us</a>
                         <a href="#" class="link">Contact Us</a>
-                        <a href="login.html" class="button-login">Sign In / Sign Up</a>
+                        <?php  if (!isset($_SESSION['session_user'])) : ?>
+                            <a href="login.php" class="button-login">Sign In / Sign Up</a>
+                        <?php else : ?>
+                            <p>
+                                Welcome
+                                <strong>
+                                    <?php echo $_SESSION['session_user']; ?>
+                                </strong>
+                            </p>
+                            <p>
+                                <a href="index.php?logout='1'" class="button-logout">Sign Out</a>
+                            </p>
+                        <?php endif ?>
                         <div class="search-box-smol">
                             <input id="search-input-smol" type="text" placeholder="Search for..." value=""/>
                             <i class="fa fa-search" onclick="startSearch()"></i>    

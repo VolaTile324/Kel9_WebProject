@@ -74,7 +74,21 @@ a{
     padding: 8px;
 }
 
+.button-logout{
+    background-color:#425465;
+    border: 2px solid #425465;
+    color: white;
+    border-radius: 5px;
+    padding: 8px;
+}
+
 .button-login:hover {
+    background-color: white;
+    color: #425465;
+    border: 2px solid #425465;
+}
+
+.button-logout:hover {
     background-color: white;
     color: #425465;
     border: 2px solid #425465;
