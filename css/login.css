@@ -35,6 +35,13 @@ body {
   text-align: center;
 }
 
+#login-message {
+  font-size: 18px;
+  margin-bottom: auto;
+  text-align: center;
+  color: red;
+}
+
 .button-signin {
   width: 100%;
   background: #313244;

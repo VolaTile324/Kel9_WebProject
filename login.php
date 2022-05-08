@@ -34,19 +34,58 @@
                     <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
                     <input type="submit" value="Login" id="login-form-submit">
                 </form> -->
+                <p id="login-message"></p>
 
-                <form action="db_validate_login.php" method="post">
+                <form action="" onSubmit="return validateInfo()" method="post">
                     <div class="margin-bottom15px">
                       <label for="username" >Username</label>
-                      <input type="text" name="username" id="username" required>
+                      <input type="text" name="username" id="username">
                     </div>
                     <div class="margin-bottom15px">
                       <label for="password" >Password</label>
-                      <input type="password" name="password" id="password" required>
+                      <input type="password" name="password" id="password">
                     </div>
-                    <button type="submit" class="button-signin">Sign In</button>
+                    <button type="submit" name="submit" class="button-signin">Sign In</button>
                                        
                 </form>
+                
+                <?php
+                    if(isset($_POST["submit"])){
+                        if(!empty($_POST['username']) && !empty($_POST['password'])) {
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+                        
+                            $connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
+                            mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
+                        
+                            $query = mysqli_query($connect, "SELECT * FROM userdata WHERE username = '$username' AND password = '$password'");
+                            $numrows=mysqli_num_rows($query);
+                            if($numrows!=0)
+                            {
+                                while($row=mysqli_fetch_assoc($query))
+                                {
+                                    $dbusername=$row['username'];
+                                    $dbpassword=$row['password'];
+                                }
+                        
+                                if($username == $dbusername && $password == $dbpassword)
+                                {
+                                    session_start();
+                                    $_SESSION['session_user']=$username;
+                        
+                                header("Location: index.php");
+                                }
+                            }
+                            else 
+                            {
+                                echo "<script>
+                                document.getElementById('login-message').innerHTML = 'Username dan password salah!';
+                                </script>";
+                            }
+                        }
+                    }
+                ?>
+
                 <div class="signup-box">
                     Don't have an account? <a href="signup.html">Sign Up</a>
                 </div>

@@ -1,14 +1,10 @@
-function getInfo() {
-    var email = document.getElementById("email").value
+function validateInfo() {
+    var username = document.getElementById("username").value
     var password = document.getElementById("password").value
     
-    if(email == "rpl@upi.com" && password == "stingak")
+    if(username == "" || password == "")
     {
-        window.open("index.html", "_self");
-    }
-    else
-    {
-        alert("Invalid email and/or password");
+        document.getElementById("login-message").innerHTML = "Username dan password tidak boleh kosong!";
         return false;
     }
 }
