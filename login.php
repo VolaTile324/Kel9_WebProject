@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['session_user'])){
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <!-- Template by html.am -->
 <html>
@@ -70,7 +78,6 @@
                         
                                 if($username == $dbusername && $password == $dbpassword)
                                 {
-                                    session_start();
                                     $_SESSION['session_user']=$username;
                         
                                 header("Location: index.php");
