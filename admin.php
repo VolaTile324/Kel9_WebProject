@@ -199,7 +199,7 @@ if (isset($_GET['logout'])) {
                                     <div class="data email"></div>
                                     <tr>
                                         <td class="align-middle">Gojek</td>
-                                        <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
+                                        <td class="align-middle">Gojek is a technology company from Indonesia that serves transportation through motorcycle taxi services.</td>
                                         <td class="align-middle">2022-02-12</td>
                                         <td class="align-middle">New</td>
                                         <td class="align-middle">Active</td>                                      
@@ -210,7 +210,7 @@ if (isset($_GET['logout'])) {
                                              href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td class="align-middle">Gojek</td>
                                         <td class="align-middle">Ini adalah deskripsi dari perusahaan</td>
                                         <td class="align-middle">2022-02-12</td>
@@ -288,7 +288,7 @@ if (isset($_GET['logout'])) {
                                             <a onclick="deleteConfirm('<?= base_url(); ?>index.php/admin/siswa/hapusDataSiswa/<?= $data->rizky_nisn?>')"
                                              href="#!" class="btn btn-small text-danger"><i class="fa fa-trash"></i> Hapus</a>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     
                                 </div>
 

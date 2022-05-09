@@ -33,7 +33,7 @@
             <form action="javascript:checkPassword()">
                 <div class="input-field">
                     <label for="username" >Username</label>
-                    <input type="text" id="username" placeholder="username" required>     
+                    <input type="text" id="username" placeholder="Username" required>     
                     <div class="icon"><i class="fa fa-user"></i></div>
                 </div>
                 <div class="input-field">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="input-field">
                     <label for="password" >Password</label>
-                    <input type="password" id="password" placeholder="password" required>     
+                    <input type="password" id="password" placeholder="Password" required>     
                     <div class="icon"><i class="fa fa-key"></i></div>
                 </div>
                     <p id="pwmessage"></p>

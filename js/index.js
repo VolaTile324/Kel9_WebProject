@@ -4,7 +4,7 @@ function startSearch(){
 
 var searchInput = document.getElementById("search-input-smol");
 searchInput.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
+    if (event.key === "Enter") {
         event.preventDefault();
         startSearch();
     }

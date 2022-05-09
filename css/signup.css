@@ -32,6 +32,8 @@
   height: 43px;
   padding-left: 40px;
   margin-right: 0;
+  font-size: 16px;
+  font-family: Poppins;
 }
 
 .input-field .icon{

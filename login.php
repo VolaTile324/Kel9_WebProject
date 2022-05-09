@@ -13,6 +13,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata:400">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/general.css" />
         <link rel="stylesheet" type="text/css" href="css/login.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,14 +48,15 @@
                 <form action="" onSubmit="return validateInfo()" method="post">
                     <div class="margin-bottom15px">
                       <label for="username" >Username</label>
-                      <input type="text" name="username" id="username">
+                      <input type="text" name="username" id="username" placeholder="Username">
+                      <div class="icon"><i class="fa fa-user"></i></div>
                     </div>
                     <div class="margin-bottom15px">
                       <label for="password" >Password</label>
-                      <input type="password" name="password" id="password">
+                      <input type="password" name="password" id="password" placeholder="Password">
+                      <div class="icon"><i class="fa fa-key"></i></div>
                     </div>
-                    <button type="submit" name="submit" class="button-signin">Sign In</button>
-                                       
+                    <button type="submit" name="submit" class="button-signin">Sign In</button>                                       
                 </form>
                 
                 <?php
@@ -102,8 +104,7 @@
                 <div class="signup-box">
                     Don't have an account? <a href="signup.html">Sign Up</a>
                 </div>
-            </div>       
-         
+            </div> 
 		</main>
 
         <footer id="footer" class="footer">

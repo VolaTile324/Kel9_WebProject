@@ -29,7 +29,6 @@ if (isset($_GET['logout'])) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <script src="js/index.js"></script>
         <title>Seek Stack</title>
 	</head>
 	
@@ -60,7 +59,7 @@ if (isset($_GET['logout'])) {
                         <?php endif ?>
                         <div class="search-box-smol">
                             <input id="search-input-smol" type="text" placeholder="Search for..." value=""/>
-                            <i id= "init-search" class="fa fa-search" onclick="startSearch()"></i>    
+                            <i class="fa fa-search" onclick="startSearch()"></i>    
                         </div>
                     </nav>
 
@@ -237,5 +236,7 @@ if (isset($_GET['logout'])) {
                </div>
            </div>
        </footer>
+
+       <script src="js/index.js"></script>
 	</body>
 </html>
