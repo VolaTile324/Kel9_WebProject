@@ -81,13 +81,15 @@
                         
                                 if($username == $dbusername && $password == $dbpassword && $dbrole == "1")
                                 {
-                                    $_SESSION['session_user']=$username;
+                                    $_SESSION['session_user'] = $username;
+                                    $_SESSION['user_type'] = 1;
                                     header("Location: index.php");
                                 }
 
                                 else if($username == $dbusername && $password == $dbpassword && $dbrole == "2")
                                 {
                                     $_SESSION['session_user']=$username;
+                                    $_SESSION['user_type'] = 2;
                                     header("Location: admin.php");
                                 }
                             }

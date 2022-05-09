@@ -1,11 +1,14 @@
 <?php
- 
 // Session start
 session_start();
   
 // Condition if not logged in, redirect to login page
 if (!isset($_SESSION['session_user'])) {
     header("Location: login.php");
+}
+
+if($_SESSION['user_type'] == 1){
+    header("Location: index.php");
 }
   
 // Logout
