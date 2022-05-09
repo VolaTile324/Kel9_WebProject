@@ -78,7 +78,7 @@ if (isset($_GET['logout'])) {
                             Basis data produk perangkat lunak dan pelanggan yang terkemuka digunakan oleh 
                             manajer produk, pemasar, analis, dan investor yang ingin memahami tren adopsi perangkat lunak.
                         </p>
-                        <a href="subscribe.html" class="subsbutton">Subscribe Now!</a>
+                        <a href="subscribe.php" class="subsbutton">Subscribe Now!</a>
                     </div>
                     <img src="image/banner.png"/>
                 </div>
@@ -203,7 +203,7 @@ if (isset($_GET['logout'])) {
                                     <li>Lorem Ipsum Dolor sit amet. Eros dui.</li>
                                 </ul>
                             </div>
-                            <a href="subscribe.html" class="button-get-started" id="button-monthly">Get Started</a>
+                            <a href="subscribe.php" class="button-get-started" id="button-monthly">Get Started</a>
                     </div> 
 
                     <div class="price-container" id="price-yearly" >
@@ -218,7 +218,7 @@ if (isset($_GET['logout'])) {
                                     <li>Lorem Ipsum Dolor sit amet. Eros dui.</li>    
                                 </ul>
                             </div>
-                            <a href="subscribe.html" class="button-get-started" id="button-yearly">Get Started</a>
+                            <a href="subscribe.php" class="button-get-started" id="button-yearly">Get Started</a>
                     </div> 
                 </div>
  		</main>
