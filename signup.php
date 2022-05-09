@@ -1,3 +1,5 @@
+<!-- To do: Create entry on database after signup process! -->
+
 <!DOCTYPE html>
 <html>
 <head>

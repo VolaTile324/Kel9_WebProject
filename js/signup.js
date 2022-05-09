@@ -18,6 +18,6 @@ function checkPassword() {
        setMessage.innerHTML = "**Password length must not exceed 15 characters";
        return false;
     } else {
-      window.open("index.html", "_self");
+      window.open("index.php", "_self");
     }
   }

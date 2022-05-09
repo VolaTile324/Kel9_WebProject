@@ -1,3 +1,22 @@
+<?php
+ 
+// Session start
+session_start();
+  
+// Condition if not logged in, redirect to login page
+if (!isset($_SESSION['session_user'])) {
+    header("Location: login.php");
+}
+  
+// Logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['session_user']);
+    header("location: login.php");
+}
+?>
+
+<!DOCTYPE html>
 <html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -66,12 +85,23 @@
                 </ul>
                 
                 <ul class="logout-mode">
-                    <li>
-                        <a href="login.html">
-                        <i class="uil uil-signout"></i>
-                        <span class="link-name">Logout</span>
-                        </a>
-                    </li>
+                    <!-- The IF condition is probably unnecessary,
+                    but Rhizka always have a backup plan :) -->
+                    <?php if(!isset($_SESSION['session_user'])) : ?>
+                        <li>
+                            <a href="login.php">
+                            <i class="uil uil-signin-alt"></i>
+                            <span class="link-name">Login</span>
+                            </a>
+                        </li>
+                    <?php else : ?>
+                        <li>
+                            <a href="index.php?logout='1'">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Logout</span>
+                            </a>
+                        </li>
+                    <?php endif ?>
                     
                     <!-- dark mode disabled because of the css conflict with datatables css.
                     yes very sad -->
@@ -92,9 +122,16 @@
                     <i class="uil uil-search"></i>
                     <input type="text" placeholder="Search here...">
                 </div> -->
-                <span class="user" style="margin-left: 800px;">Welcome, Admin!</span>
+                <!-- The IF condition is probably unnecessary,
+                but Rhizka always have a backup plan :) -->
+                <?php  if (!isset($_SESSION['session_user'])) : ?>
+                    <span class="user" style="margin-left: 800px;">Please login first!</span>
+                <?php else : ?>
+                    <span class="user" style="margin-left: 800px;">
+                    Welcome, <?php echo $_SESSION['session_user']; ?>
+                    </span>
                 <img src="image/profile-admin.png" alt="">
-                
+                <?php endif ?>
             </div>
             
             <!-- Dashboard / Isi Konten - Section -->

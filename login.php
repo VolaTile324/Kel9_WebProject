@@ -74,13 +74,19 @@
                                 {
                                     $dbusername=$row['username'];
                                     $dbpassword=$row['password'];
+                                    $dbrole=$row['role'];
                                 }
                         
-                                if($username == $dbusername && $password == $dbpassword)
+                                if($username == $dbusername && $password == $dbpassword && $dbrole == "1")
                                 {
                                     $_SESSION['session_user']=$username;
-                        
-                                header("Location: index.php");
+                                    header("Location: index.php");
+                                }
+
+                                else if($username == $dbusername && $password == $dbpassword && $dbrole == "2")
+                                {
+                                    $_SESSION['session_user']=$username;
+                                    header("Location: admin.php");
                                 }
                             }
                             else 

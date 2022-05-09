@@ -26,11 +26,12 @@ CREATE TABLE `userdata` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `role` int(11) NOT NULL,
   `password` varchar(32) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +40,7 @@ CREATE TABLE `userdata` (
 
 LOCK TABLES `userdata` WRITE;
 /*!40000 ALTER TABLE `userdata` DISABLE KEYS */;
-INSERT INTO `userdata` VALUES (1,'Rhz123','rhizkaka@nomail.com','rhizkadmin');
+INSERT INTO `userdata` VALUES (2,'Rhzhost','rhizkaka@nomail.com',2,'rhizkadmin'),(3,'Rhz123','rhizkasub@nomail.com',1,'rhizka343');
 /*!40000 ALTER TABLE `userdata` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-08 20:16:32
+-- Dump completed on 2022-05-09 12:23:27

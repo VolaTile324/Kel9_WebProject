@@ -1,3 +1,20 @@
+<?php
+// Session start
+session_start();
+  
+// Condition if not logged in, redirect to login page
+if (!isset($_SESSION['session_user'])) {
+    header("location: login.php");
+}
+  
+// Logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['session_user']);
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,11 +36,24 @@
                         <h1>Seek Stack</h1>
                     </div>
                     <nav class="nav">
-                        <a href="index.html" class="link">Home</a>
+                        <a href="index.php" class="link">Home</a>
                         <a href="#" class="link">About Us</a>
                         <a href="#" class="link">Contact Us</a>
-                        <!-- <a href="login.html" class="button-login">Sign In / Sign Up</a> -->
-                        </ul>
+                        <!-- This part requires login first, Rhizka thinks user must be redirected to login page
+                        Sooo... this IF condition might be unnecessary, but backup plan is always nice! -->
+                        <?php  if (!isset($_SESSION['session_user'])) : ?>
+                            <a href="login.php" class="button-login">Sign In / Sign Up</a>
+                        <?php else : ?>
+                            <p>
+                                Welcome
+                                <strong>
+                                    <?php echo $_SESSION['session_user']; ?>
+                                </strong>
+                            </p>
+                            <p>
+                                <a href="index.php?logout='1'" class="button-logout">Sign Out</a>
+                            </p>
+                        <?php endif ?>
                     </nav>
 
                 </div>

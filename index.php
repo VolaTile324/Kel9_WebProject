@@ -1,21 +1,14 @@
 <?php
- 
-// Starting the session, to use and
-// store data in session variable
+// Session start
 session_start();
   
-// If the session variable is empty, this
-// means the user is yet to login
-// User will be sent to 'login.php' page
-// to allow the user to login
+// Condition if not logged in, redirect to login page
+// Renewed into a login button that will appear, refer to line 50-52
 /* if (!isset($_SESSION['session_user'])) {
     $_SESSION['msg'] = "You have to log in first";
 } */
   
-// Logout button will destroy the session, and
-// will unset the session variables
-// User will be headed to 'login.php'
-// after logging out
+// Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['session_user']);
@@ -67,7 +60,7 @@ if (isset($_GET['logout'])) {
                         <?php endif ?>
                         <div class="search-box-smol">
                             <input id="search-input-smol" type="text" placeholder="Search for..." value=""/>
-                            <i class="fa fa-search" onclick="startSearch()"></i>    
+                            <i id= "init-search" class="fa fa-search" onclick="startSearch()"></i>    
                         </div>
                     </nav>
 
