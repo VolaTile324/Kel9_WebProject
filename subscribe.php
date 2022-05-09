@@ -4,7 +4,7 @@ session_start();
   
 // Condition if not logged in, redirect to login page
 if (!isset($_SESSION['session_user'])) {
-    $_SESSION['msg'] = "You have to log in first";
+    header("Location: login.php");
 }
   
 // Logout
