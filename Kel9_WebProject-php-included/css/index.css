@@ -1,0 +1,211 @@
+#content-title {
+    padding-top: 50px;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+#content-desc {
+    text-align: center;
+}
+
+.banner-image{
+    height: 450px;
+}
+
+.banner-image img{
+    float: right;
+    width: 50%;
+}
+
+.banner{ 
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin-top: 75px;
+}
+
+.bannerdesc {
+    font-size: 20px;
+    margin:16px 0 40px 0;
+}
+
+
+/* Ini Bagian Price */
+.price-containers{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 30px auto;
+}
+
+.price-container{
+    background: #E4E7EC66;
+    width: 300px;
+    margin: 0 20px;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+
+.price-container sup{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.price-container p{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.price-nominal{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.list-price{
+    text-align: left;
+    line-height: 30px;
+}
+
+.button-get-started{
+    border-radius: 5px;
+    padding: 12px 32px 12px 32px;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+#button-monthly{
+    border: 2px solid #E4E7EC;
+    background-color: #E4E7EC;
+    color: #545569;
+}
+
+#button-monthly:hover{
+    border: 2px solid #545569;
+    background-color: #ffffff;
+    color: #545569;
+}
+
+#button-yearly{
+    border: 2px solid #0B6CE3;
+    background-color: #0B6CE3;
+    color: white;
+    transition-duration: 0.1s;
+}
+
+#button-yearly:hover{
+    border: 2px solid #0B6CE3;
+    background-color: #ffffff;
+    color: #0B6CE3;
+}
+
+.checked-list{
+    list-style-image: url('../image/list/checked.png');
+}
+
+.unchecked-list{
+    list-style-image: url('../image/list/unchecked.png');
+}
+
+
+/* Subscribe Button */
+.subsbutton {
+    background-color: #0B6CE3;
+    border: 2px solid #0B6CE3;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.1s;
+}
+
+.subsbutton:hover {
+    background-color: white;
+    color: #0B6CE3;
+}
+
+/* Daftar Perusahaan */
+.companycontent {
+    background-color: #FAFAFB;
+}
+
+.cmplist-blockset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 73%;
+    margin: 0 auto;
+}
+
+.cmplist-container {
+    margin: 20px 10px;
+}
+
+.cmplist-img-container {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    overflow: hidden;
+    border:2px solid #ddd;
+}
+
+.cmplist-img-container img{
+    width: 100px;
+    height: 100px;
+}
+
+.cmplist-title-container{
+    text-align: center;
+}
+
+.cmplist-upper-container{
+    height: 50px;
+}
+
+.cmplist-lower-container{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    background-color:#F1F3F5;
+    border: 2px solid #E4E7EC;
+    border-radius: 4px;
+    padding: 10px;
+    padding-top: 100px;
+}
+
+.cmplist-lower-container img{
+    width: 70px;
+    height: 70px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .cmplist-blockset{
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .banner{
+        width: 100%;
+    }
+    .banner-image{
+        height: 350px;
+    }
+    .banner-image img{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .price-container{
+        width: 95%;
+    }
+}

@@ -1,0 +1,271 @@
+                .banner-main{
+                    padding-top: 100px;
+                    padding-bottom: 50px;
+                    height: auto;
+                }
+        
+                .banner-main img{
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 45%;
+                    height: auto;
+                    padding-bottom: 20px;
+                }
+
+                    /* Search Box */
+                .search-box {
+                    width: 60%;
+                    height: 50px;
+                    border: 2px solid #425465;
+                    border-radius: 5px;
+                    display: flex;
+                    padding: 3px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .dropdown-menu {
+                    width: 250px;
+                    border-right: 2px solid #425465;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                #dropdown-default {
+                    padding: 13px;
+                    font-size: 15px;
+                }
+
+                #dropdown-list {
+                    width: 200px;
+                    background-color: #ffffff;
+                    border-radius: 5px;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    display: none;
+                }
+
+                #dropdown-list ul li {
+                    list-style: none;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                #dropdown-list ul li:hover {
+                    color: #6f768d;
+                  }
+
+                .dropdown-menu:before {
+                    content: "";
+                    position: absolute;
+                    top: 20px;
+                    right: 25px;
+                    border-top: 10px solid #5078ef;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                }
+
+                .search-form {
+                    width: 80%;
+                    height: 60%;
+                    padding-left: 10px;
+                    padding-right: 20px;
+                    position: relative;
+                }
+
+                @media screen and (max-width: 650px) {
+                    .search-box, .search-form {
+                        width: 100%;
+                    }
+                }
+
+                #search-input {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 15px;
+                    padding: 10px;
+                    font-family: Poppins;
+                }
+
+                .search-form .fa{
+                    position: absolute;
+                    top: 14px;
+                    right: 10px;
+                    font-size: 22px;
+                    color: #5078ef;
+                    cursor: pointer;
+                  }
+
+                        /* Hasil Search */
+                .result-background {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    background-color: #FAFAFB;
+                }
+
+                .result-wrapper {
+                    background-color:#F1F3F5;
+                    border: 2px solid #E4E7EC;
+                    border-radius: 4px;
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    padding: 5px;
+                    width: 85%;
+                    height: auto;
+                }
+
+                .result-content {
+                    padding: 10px;
+                }
+
+                .result-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+
+                .result-tags {
+                    width: 80px;
+                    background-color: #ffffff;
+                    border: 2px solid #0B6CE3;
+                    border-radius: 8px;
+                    color: #0B6CE3;
+                    margin-right: 5px;
+                    margin-bottom: 10px;
+                    padding: 2px;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 14px;
+                    transition-duration: 0.1s;
+                }
+        
+                .result-tags:hover {
+                    background-color: #0B6CE3;
+                    color: #ffffff;
+                }
+
+                .result-assets {
+                    display: inline-flex;
+                    padding-top: 5px;
+                }
+
+                .result-assets img {
+                    margin-right: 5px;
+                    width: 20%;
+                    height: auto;
+                }
+
+                .result-img {
+                    padding: 10px;
+                    border-right: 2px solid #E4E7EC;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+        
+                .result-img img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 5px;
+                }
+
+                /* Modals */
+                /* Background */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    padding-top: 100px;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgb(0, 0, 0);
+                    background-color: rgba(0, 0, 0, 0.4);
+                }
+                
+                /* Kontennya */
+                .modal-content {
+                    background-color: #ffffff;
+                    border: 2px solid #E4E7EC;
+                    border-radius: 5px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    padding: 5px;
+                    width: 50%;
+                    height: auto;
+                }
+
+                .modal-content p {
+                    margin: 10px;
+                    text-align: center;
+                }
+                
+                .modal-content h1 {
+                    margin: 10px;
+                    margin-top: 20px;
+                    margin-bottom: 25px;
+                    text-align: center;
+                }
+
+                .close {
+                    color: #6f768d;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                  }
+                  
+                .close:hover,
+                .close:focus {
+                    color: #0B6CE3;
+                    text-decoration: none;
+                    cursor: pointer;
+                  }
+
+                .modal-pic-style {
+                    width: 90%;
+                    padding: 10px;
+                    border-bottom: 2px solid #E4E7EC;
+                    margin: auto;
+                }
+
+                .modal-pic-style img {
+                    display: block;
+                    border-radius: 25px;
+                    width: 25%;
+                    height: auto;
+                    margin: auto;
+                    padding: 10px;
+                }
+
+                .modal-company-btn {
+                    font-family: Poppins;
+                    width: 120px;
+                    background-color: #ffffff;
+                    border: 2px solid #0B6CE3;
+                    border-radius: 5px;
+                    color: #0B6CE3;
+                    padding: 4px;
+                    margin-top: 25px;
+                    margin-bottom: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: block;
+                    font-size: 16px;
+                    transition-duration: 0.1s;
+                }
+        
+                .modal-company-btn:hover {
+                    background-color: #0B6CE3;
+                    color: #ffffff;
+                }
