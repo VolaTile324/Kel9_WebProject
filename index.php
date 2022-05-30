@@ -8,10 +8,12 @@ session_start();
     $_SESSION['msg'] = "You have to log in first";
 } */
   
+
 // Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['session_user']);
+    setcookie("user", "", time() - 3600);
     header("location: login.php");
 }
 ?>
@@ -51,7 +53,7 @@ if (isset($_GET['logout'])) {
                                 Welcome
                                 <strong>
                                     <?php echo $_SESSION['session_user']; ?>
-                                </strong>
+                                !</strong>
                             </p>
                             <p>
                                 <a href="index.php?logout='1'" class="button-logout">Sign Out</a>

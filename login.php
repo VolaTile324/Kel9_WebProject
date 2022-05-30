@@ -1,13 +1,4 @@
-<?php
-    session_start();
-
-    if (isset($_SESSION['session_user'])){
-        header("Location: index.php");
-    }
-?>
-
 <!DOCTYPE html>
-<!-- Template by html.am -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,11 +11,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <script src="js/login.js"></script>
-        <title>Seek Stack | Login</title>
+        <title>Seek Stack</title>
 	</head>
 	
-	<body>		
-
+	<body>
 		<header id="header">
             <div class="container">
                 <div class="header">
@@ -38,36 +28,57 @@
 		<main>
            <div class="login-container">
                 <h1 class="login-header">Sign In</h1>
-                <!-- <form id="login-form">
-                    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-                    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-                    <input type="submit" value="Login" id="login-form-submit">
-                </form> -->
                 <p id="login-message"></p>
 
                 <form action="" onSubmit="return validateInfo()" method="post">
-                    <div class="margin-bottom15px">
+                    <div class="input-field">
                       <label for="username" >Username</label>
                       <input type="text" name="username" id="username" placeholder="Username">
                       <div class="icon"><i class="fa fa-user"></i></div>
                     </div>
-                    <div class="margin-bottom15px">
+                    <div class="input-field">
                       <label for="password" >Password</label>
                       <input type="password" name="password" id="password" placeholder="Password">
                       <div class="icon"><i class="fa fa-key"></i></div>
                     </div>
+                    <div class = "input-field-checkbox">
+                      <input type="checkbox" name="remember" id="remember">
+                      <label for="remeber">Remember me</label>
+                    </div>
                     <button type="submit" name="submit" class="button-signin">Sign In</button>                                       
                 </form>
-                
                 <?php
+                    session_start();
+                    $connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
+                    mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
+
+
+                    //cek cookie
+                    if( isset($_COOKIE['user'])) {
+                        //$id = $_COOKIE['id'];
+                        $user = $_COOKIE['user'];
+
+                        // ambil username berdasarkan id
+                        $result = mysqli_query($connect, "SELECT username FROM userdata WHERE username = '$user'");
+                        $row = mysqli_fetch_assoc($result);
+                        if($row['username'] == $user){
+                            //$_SESSION['session_username'] = $cookie_username;
+                            //$_SESSION['session_password'] = $cookie_password;
+                            $_SESSION['login'] = true;
+                            $_SESSION['session_user'] = $user;
+                        }
+                    }
+
+                    //cek apakah sudah login
+                    if (isset($_SESSION['session_user'])){
+                        header("Location: index.php");
+                    }
+
                     if(isset($_POST["submit"])){
                         if(!empty($_POST['username']) && !empty($_POST['password'])) {
                             $username = $_POST['username'];
                             $password = $_POST['password'];
-                        
-                            $connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
-                            mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
-                        
+                                        
                             $query = mysqli_query($connect, "SELECT * FROM userdata WHERE username = '$username' AND password = '$password'");
                             $numrows=mysqli_num_rows($query);
                             if($numrows!=0)
@@ -78,33 +89,50 @@
                                     $dbpassword=$row['password'];
                                     $dbrole=$row['role'];
                                 }
-                        
+                                //cek username dan password dan role
                                 if($username == $dbusername && $password == $dbpassword && $dbrole == "1")
-                                {
-                                    $_SESSION['session_user'] = $username;
-                                    $_SESSION['user_type'] = 1;
-                                    header("Location: index.php");
-                                }
+                                    {
+                                        $_SESSION['session_user'] = $username;
+                                        $_SESSION['user_type'] = 1;
+                                        $_SESSION['login'] = true;
 
-                                else if($username == $dbusername && $password == $dbpassword && $dbrole == "2")
-                                {
-                                    $_SESSION['session_user']=$username;
-                                    $_SESSION['user_type'] = 2;
-                                    header("Location: admin.php");
-                                }
+                                        //cek remember me
+                                        if(isset($_POST["remember"])){
+                                            //buat cookie
+                                            //setcookie("id", $row["id"], time()+(60 * 2));
+                                            setcookie("user", $dbusername, time()+(60 * 2));
+                                        }
+
+                                        header("Location: index.php");
+                                    }
+
+                                    else if($username == $dbusername && $password == $dbpassword && $dbrole == "2")
+                                    {
+                                        $_SESSION['session_user']=$username;
+                                        $_SESSION['user_type'] = 2;
+                                        $_SESSION['login'] = true;
+
+                                        //cek remember me
+                                        if(isset($_POST["remember"])){
+                                            //buat cookie
+                                            //setcookie("id", $row["id"], time()+(60 * 2));
+                                            setcookie("user", $dbusername, time()+(60 * 2));
+                                        }
+                                        
+                                        header("Location: admin.php");
+                                    }
                             }
                             else 
                             {
                                 echo "<script>
-                                document.getElementById('login-message').innerHTML = 'Username dan password salah!';
-                                </script>";
+                                    document.getElementById('login-message').innerHTML = 'Username dan password salah!';
+                                    </script>";
                             }
                         }
-                    }
+                    } 
                 ?>
-
                 <div class="signup-box">
-                    Don't have an account? <a href="signup.html">Sign Up</a>
+                    Don't have an account? <a href="signup.php">Sign Up</a>
                 </div>
             </div> 
 		</main>

@@ -1,5 +1,4 @@
 <!-- To do: Create entry on database after signup process! -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,24 +29,24 @@
     <main>
         <div class="signup-container">
             <h1 class="signup-header">Sign Up</h1>
-            <form action="javascript:checkPassword()">
+            <form method="POST" action="javascript:checkPassword()">
                 <div class="input-field">
                     <label for="username" >Username</label>
-                    <input type="text" id="username" placeholder="Username" required>     
+                    <input type="text" name="username" id="username" placeholder="Username" required>     
                     <div class="icon"><i class="fa fa-user"></i></div>
                 </div>
                 <div class="input-field">
                     <label for="email" >Email</label>
-                    <input type="email" id="email" placeholder="example@email.com" required>     
+                    <input type="email" name="email" id="email" placeholder="example@email.com" required>     
                     <div class="icon"><i class="fa fa-envelope"></i></div>
                 </div>
                 <div class="input-field">
                     <label for="password" >Password</label>
-                    <input type="password" id="password" placeholder="Password" required>     
+                    <input type="password" name="password" id="password" placeholder="Password" required>     
                     <div class="icon"><i class="fa fa-key"></i></div>
                 </div>
                     <p id="pwmessage"></p>
-                <button type="submit" class="button-signup">Sign Up</button>
+                <button type="submit" name="sumbit" class="button-signup">Sign Up</button>
             </form>
         </div>
 	</main>
