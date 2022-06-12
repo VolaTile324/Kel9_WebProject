@@ -36,7 +36,7 @@ CREATE TABLE `daftar_kategori` (
 
 LOCK TABLES `daftar_kategori` WRITE;
 /*!40000 ALTER TABLE `daftar_kategori` DISABLE KEYS */;
-INSERT INTO `daftar_kategori` VALUES (23,'Food'),(3,'Internet of Things'),(19,'SEO'),(2,'Sosial Media'),(1,'Startup');
+INSERT INTO `daftar_kategori` VALUES (23,'Food'),(3,'Internet of Things'),(8,'News'),(19,'SEO'),(7,'Shopping'),(2,'Sosial Media'),(1,'Startup');
 /*!40000 ALTER TABLE `daftar_kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -104,6 +104,7 @@ CREATE TABLE `daftar_perusahaan` (
   `logo` varchar(255) NOT NULL,
   `pemilik` varchar(128) NOT NULL,
   `deskripsi` text NOT NULL,
+  `kategori` varchar(64) NOT NULL,
   `status_perusahaan` varchar(32) NOT NULL,
   PRIMARY KEY (`id_perusahaan`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3124 DEFAULT CHARSET=utf8mb4;
@@ -115,7 +116,7 @@ CREATE TABLE `daftar_perusahaan` (
 
 LOCK TABLES `daftar_perusahaan` WRITE;
 /*!40000 ALTER TABLE `daftar_perusahaan` DISABLE KEYS */;
-INSERT INTO `daftar_perusahaan` VALUES (1,'Tokopedia 1','gojek.png','GoTo','Toko Online','Merger');
+INSERT INTO `daftar_perusahaan` VALUES (1,'Tokopedia','tokopedia.png','GoTo','Toko Online','Shopping','Merger'),(2,'IDN Times','idn_times.png','Uni','IDN Times is a multi-platform news and entertainment digital media company for Millennials and Gen Z in Indonesia.','News','Active'),(3,'Gojek','gojek.png','GoTo','Superapps & Transport','Startup','Merger'),(4,'Shopee','gojek.png','Ate','Toko Online','Shopping','Active');
 /*!40000 ALTER TABLE `daftar_perusahaan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -209,7 +210,7 @@ CREATE TABLE `log_activity` (
   `data_name` varchar(20) NOT NULL,
   `waktu` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +219,7 @@ CREATE TABLE `log_activity` (
 
 LOCK TABLES `log_activity` WRITE;
 /*!40000 ALTER TABLE `log_activity` DISABLE KEYS */;
-INSERT INTO `log_activity` VALUES (1,'New Data','Perusahaan',2,'Google','2022-06-10'),(2,'Update Data','Perusahaan',2,'Google','2022-06-10'),(3,'Delete Data','Perusahaan',2,'Google','2022-06-10'),(4,'Delete Data','Kategori',24,'Tools','2022-06-10'),(5,'Update Data','Kategori',19,'SEO','2022-06-10'),(6,'Update Data','Perusahaan',1,'Tokopedia','2022-06-11'),(7,'New Data','Perusahaan',2,'Gojek','2022-06-11'),(8,'Delete Data','Perusahaan',3123,'Canvas','2022-06-12'),(9,'Delete Data','Perusahaan',2,'Gojek','2022-06-12'),(10,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(11,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(12,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(13,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(14,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(15,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(16,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(17,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(18,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(19,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(20,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(21,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(22,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(23,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(24,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(25,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(26,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(27,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(28,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(29,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(30,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(31,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(32,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(33,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(34,'Delete Data','Perusahaan',1,'Tokopedia','2022-06-12'),(35,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(36,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(37,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(38,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(39,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(40,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(41,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(42,'Update Data','Perusahaan',1,'Tokopedia 1','2022-06-12'),(43,'Delete Data','Perusahaan',1,'Tokopedia 1','2022-06-12'),(44,'New Data','Perusahaan',1,'Tokopedia','2022-06-12'),(45,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(46,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(47,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(48,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(49,'Update Data','Perusahaan',1,'Tokopedia 2','2022-06-12'),(50,'Update Data','Perusahaan',1,'Tokopedia 1','2022-06-12'),(51,'Update Data','Perusahaan',1,'Tokopedia 1','2022-06-12');
+INSERT INTO `log_activity` VALUES (1,'Update Data','Perusahaan',1,'Tokopedia 1','2022-06-12'),(2,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(3,'New Data','Perusahaan',2,'IDN Times','2022-06-12'),(4,'Update Data','Perusahaan',1,'Tokopedia','2022-06-12'),(5,'Update Data','Perusahaan',2,'IDN Times','2022-06-12'),(6,'New Data','Perusahaan',3,'Gojek','2022-06-12'),(7,'Delete Data','Perusahaan',3,'Gojek','2022-06-12'),(8,'New Data','Perusahaan',3,'Gojek','2022-06-12'),(9,'Update Data','Perusahaan',3,'Gojek','2022-06-12'),(10,'Update Data','Perusahaan',3,'Gojek','2022-06-12'),(11,'Update Data','Perusahaan',3,'Gojek','2022-06-12'),(12,'Update Data','Perusahaan',3,'Gojek','2022-06-12'),(13,'Delete Data','Perusahaan',3,'Gojek','2022-06-12'),(14,'New Data','Perusahaan',3,'Gojek','2022-06-12'),(15,'New Data','Kategori',7,'Shopping','2022-06-12'),(16,'New Data','Perusahaan',4,'Shopee','2022-06-12'),(17,'New Data','Kategori',8,'News','2022-06-12');
 /*!40000 ALTER TABLE `log_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-12 16:43:46
+-- Dump completed on 2022-06-12 20:45:03
