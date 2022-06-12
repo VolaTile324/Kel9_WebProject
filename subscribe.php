@@ -1,6 +1,9 @@
 <?php
 // Session start
 session_start();
+$connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
+mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
+
   
 // Condition if not logged in, redirect to login page
 if (!isset($_SESSION['session_user'])) {
@@ -13,6 +16,81 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['session_user']);
     header("location: login.php");
 }
+
+if (isset($_POST["subscribe"])){
+    $username = $_SESSION["session_user"];
+    $card_number = $_POST["card_number"];
+    $pin = $_POST["pin"];
+    $type = $_POST["type-subs"];
+
+    $query = mysqli_query($connect, "SELECT * FROM nasabah WHERE nomor_kartu = '$card_number' AND pin = '$pin'");
+    $numrows=mysqli_num_rows($query);
+        if($numrows === 1){       
+            while($row=mysqli_fetch_assoc($query)){
+                $db_card_number = $row['nomor_kartu'];
+                $db_pin = $row['pin'];
+                $_SESSION['nomor_kartu'] = $db_card_number;
+                $_SESSION['pin'] = $db_pin;
+            }
+                //cek card number dan pin
+                if($card_number == $db_card_number && $pin == $db_pin){
+                        $query_subs = mysqli_query($connect, "CALL subscribe('$username', '$card_number', '$pin', '$type', @pesan)");
+                        if($query_subs){
+                            $result = mysqli_query($connect, "SELECT @pesan as pesan");
+                            $hasil_trans = mysqli_fetch_assoc($result);
+                            $pesan = $hasil_trans['pesan'];
+                            $_SESSION['pesan'] = $hasil_trans['pesan'];
+
+                            if($pesan == 1){
+                                echo "<script type='text/javascript'> 
+                                        window.alert('System Error, Try Later!');
+                                        window.location.href = 'subscribe.php';
+                                        </script>";
+                            }elseif($pesan == 2){
+                                echo "<script type='text/javascript'> 
+                                        window.alert('Card is not valid!');
+                                        window.location.href = 'subscribe.php';
+                                        </script>";
+                            }elseif($pesan == 3){
+                                echo "<script type='text/javascript'> 
+                                        window.alert('Not enough Balance!');
+                                        window.location.href = 'subscribe.php';
+                                        </script>";
+                            }elseif($pesan == 4){
+                                //cek type of subscription and set cookie
+                                if($type == 75000){
+                                    setcookie("subscribe-monthly", true, time()+(30*24*3600));//Monthly
+                                }else{
+                                    setcookie("subscribe-yearly", true, time()+(12*30*24*3600));//Yearly
+                                }
+                                echo "<script type='text/javascript'> 
+                                        window.alert('Transaction succes!');
+                                        window.location.href = 'index.php';
+                                        </script>";
+                            }
+                            
+                        }else{
+                            echo "<script type='text/javascript'> 
+                                        window.alert('Failed to Subscribe');
+                                        window.location.href = 'subscribe.php';
+                                        </script>";
+                        }
+                    }
+        }
+        else 
+        {
+            echo "<script type='text/javascript'> 
+                    alert('Card is not valid!') ;
+                    window.location.href = 'subscribe.php';
+                    </script>";
+        }
+        //}
+
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +105,8 @@ if (isset($_GET['logout'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script defer src="#"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="subs.js"></script>
     <title>Subscribe</title>
 </head>
 <body>
@@ -61,68 +140,35 @@ if (isset($_GET['logout'])) {
             </div>
         </div>
 
-    <div class="subs-container">
-        <form action="index.php">
-            <h1>Subsribe</h1>
-            <div class="subs-img">
-                <img src="image/subs-img.jpg" alt="">
-            </div>
-            <div class="input-field">
-                <label>Card Number</label>
-                <input type="text" maxlength="16" class="card-number-input" required>
-                <label>Card Holder</label>
-                <input type="text" class="card-holder-input" required>
-                <label>CVV</label>
-                <input type="text" maxlength="4" class="cvv-input" required>
-            </div>
-            <div class="input-field-flex">
+    <div class="container">
+        <div class="subs-img">
+            <img src="image/subs-img.jpg" alt="">
+        </div>
+        <div class="subs-container">
+            <h1 class="subs-header">Subscribe</h1>
+            <form action="" method="post">
                 <div class="input-field">
-                    <label>Expiration mm</label>
-                    <select class="month-input">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                        <option value="07">07</option>
-                        <option value="08">08</option>
-                        <option value="09">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
+                    <label>Card Number</label>
+                    <input type="text" maxlength="16" class="card-number-input" placeholder="Input card number" name="card_number" required>
                 </div>
                 <div class="input-field">
-                    <label>Expiration yy</label>
-                    <select class="year-input">
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-                    </select>
+                <label>PIN</label>
+                    <input type="password" maxlength="6" class="cvv-input" placeholder="Input PIN" name="pin" required>
                 </div>
-                <div class="input-field">
+                <div class="input-field-radio">
                     <label>Subscription</label>
-                    <select class="type-subs-input">
-                        <option value="75k">Monthly</option>
-                        <option value="120k">Yearly</option>
-                    </select>
+                    <input type="radio" name="type-subs" id="type-subs" value="75000" required>Monthly
+                    <input type="radio" name="type-subs" id="type-subs" value="120000" required>Yearly
                 </div>
-            </div>
-            <div class="input-field">
-                <label>Voucher</label>
-                <input type="text" maxlength="10" class="voucher-input">
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-        <br>
+                <p id="subs-message"></p>
+                <button type="submit" class="submit-btn" name="subscribe">Subscribe</button>
+            </form>
+            <br>
+        </div>
     </div>
+    
+
+
     <footer id="footer" class="footer">
         <div class="container">
            <div class="footer-content">
