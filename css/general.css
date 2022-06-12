@@ -99,7 +99,7 @@ a{
     border: 2px solid #425465;
 }
 
-.search-box-smol {
+/* .search-box-smol {
     width: 240px;
     height: 24px;
     border: 2px solid #425465;
@@ -108,7 +108,7 @@ a{
 }
 
 .search-box-smol .fa{
-    display: inline;
+    display: inline-flex;
     font-size: 18px;
     color: #5078ef;
     cursor: pointer;
@@ -122,6 +122,19 @@ a{
     font-size: 13px;
     font-family: Poppins;
 }
+
+.search-btn-smol {
+    width: 30px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #425465;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: Poppins;
+    cursor: pointer;
+} */
 
 
 

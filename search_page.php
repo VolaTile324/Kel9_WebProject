@@ -136,6 +136,17 @@ if (isset($_GET['logout'])) {
                                         <img src="image/logo/'.$row['logo'].'" alt="modal-'.$row['id_perusahaan'].'-picture" />
                                     </div>
                                     <h1>'.$row['nama'].'</h1>
+                                    <div class="modal-info">
+                                        <p>
+                                            <b>Kategori</b><br>'.$row['kategori'].'
+                                        </p>
+                                        <p>
+                                            <b>Pemilik</b><br>'.$row['pemilik'].'
+                                        </p>
+                                        <p>
+                                            <b>Status</b><br>'.$row['status_perusahaan'].'
+                                        </p>
+                                    </div>
                                     <p>
                                         '.$row['deskripsi'].'
                                     </p>

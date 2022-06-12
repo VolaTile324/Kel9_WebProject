@@ -261,6 +261,14 @@
                     padding: 10px;
                 }
 
+                .modal-info {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 90%;
+                    margin: auto;
+                }
+
                 .modal-company-btn {
                     font-family: Poppins;
                     width: 120px;
