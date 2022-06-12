@@ -1,6 +1,7 @@
 <?php
 // Session start
 session_start();
+include 'dbconnect.php';
   
 // Condition if not logged in, redirect to login page
 if (!isset($_SESSION['session_user'])) {
@@ -139,7 +140,7 @@ if (isset($_GET['logout'])) {
                 </div>
             </div>
             
-            <div class="result-background">
+            <!-- <div class="result-background">
                 <div class="result-wrapper" id="entry1-idntimes">
                     <div class="result-img">
                         <img src="image/logo/idn_times.png" alt="result-img" />
@@ -201,7 +202,35 @@ if (isset($_GET['logout'])) {
                         </div>
                     </div>
                 </div>
-
+                            onclick="openModal'.$row['id'].'()"
+            </div> -->
+            <div class="result-background">
+                <?php
+                    $search_query = "SELECT * FROM daftar_perusahaan";
+                    $search_result = mysqli_query($conn, $search_query);
+                    while($row = mysqli_fetch_array($search_result)){
+                        echo '
+                            <div class="result-wrapper" id="entry'.$row['id_perusahaan'].'">
+                                <div class="result-img">
+                                    <img src="image/logo/'.$row['logo'].'" alt="result-img" />
+                                </div>
+                                
+                                <div class="result-content">
+                                    <div class="result-title">'.$row['nama'].'</div>
+                                        <a href="#" class="result-tags">'.$row['kategori'].'</a>
+                                        <p>
+                                            '.$row['deskripsi'].'
+                                        </p>
+                                        <div class="result-assets">
+                                            <img src="image/asset/atom.png" alt="result-assets-1" />
+                                            <img src="image/asset/git.png" alt="result-assets-2" />
+                                            <img src="image/asset/instagram.png" alt="result-assets-3" />
+                                        </div>
+                                    </div>
+                                </div>
+                        ';
+                    }
+                ?>
             </div>
         </main>
 

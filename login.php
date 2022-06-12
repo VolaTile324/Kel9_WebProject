@@ -49,8 +49,7 @@
                 </form>
                 <?php
                     session_start();
-                    $connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
-                    mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
+                    include 'dbconnect.php';
 
 
                     //cek cookie
@@ -59,7 +58,7 @@
                         $user = $_COOKIE['user'];
 
                         // ambil username berdasarkan id
-                        $result = mysqli_query($connect, "SELECT username FROM userdata WHERE username = '$user'");
+                        $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$user'");
                         $row = mysqli_fetch_assoc($result);
                         if($row['username'] == $user){
                             //$_SESSION['session_username'] = $cookie_username;
@@ -79,18 +78,19 @@
                             $username = $_POST['username'];
                             $password = $_POST['password'];
                                         
-                            $query = mysqli_query($connect, "SELECT * FROM userdata WHERE username = '$username' AND password = '$password'");
+                            $query = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
                             $numrows=mysqli_num_rows($query);
                             if($numrows!=0)
                             {
                                 while($row=mysqli_fetch_assoc($query))
                                 {
                                     $dbusername=$row['username'];
-                                    $dbpassword=$row['password'];
+                                    $dbhash=$row['password'];
                                     $dbrole=$row['role'];
                                 }
                                 //cek username dan password dan role
-                                if($username == $dbusername && $password == $dbpassword && $dbrole == "1")
+                                $verify = password_verify($password, $dbhash);
+                                if($verify && $dbrole == "1")
                                     {
                                         $_SESSION['session_user'] = $username;
                                         $_SESSION['user_type'] = 1;
@@ -106,7 +106,7 @@
                                         header("Location: index.php");
                                     }
 
-                                    else if($username == $dbusername && $password == $dbpassword && $dbrole == "2")
+                                    else if($verify && $dbrole == "2")
                                     {
                                         $_SESSION['session_user']=$username;
                                         $_SESSION['user_type'] = 2;
@@ -121,6 +121,13 @@
                                         
                                         header("Location: admin.php");
                                     }
+                                    else
+                                    {
+                                        echo "<script>
+                                            document.getElementById('login-message').innerHTML = 'Verify gagal!';
+                                            </script>";
+                                    }
+
                             }
                             else 
                             {

@@ -1,7 +1,6 @@
 .signup-header{
     font-size: 30px;
-    margin-bottom: auto;
-    padding-left: 20px;
+    margin: 0 0 32px;
     color: #313244;
     text-align: center;
 }
@@ -14,7 +13,7 @@
     background-color: white;
     border-radius: 7px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    padding: 50px;
+    padding: 25px;
     margin: auto;
 }
 
@@ -38,7 +37,7 @@
 
 .input-field .icon{
   position: absolute;
-  left: 65px;
+  left: 40px;
   transform: translateY(-140%);
 }
 
@@ -73,7 +72,7 @@ a{
   font-family: Poppins;
   font-weight: bold;
   font-size: 16px;
-  /* margin-top: 50px; */
+  margin-bottom: 25px;
 }
 
 #pwmessage{
@@ -87,6 +86,39 @@ a{
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.login-box{
+  text-align: center;
+}
+
+.login-box a{
+  color: #545569;
+}
+
+.login-box a:hover{
+  color: #8F91AB;
+}
+
+.regis-success{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  flex-direction: column;
+}
+
+.regis-success p{
+  font-size: 24px;
+}
+
+.regis-success a{
+  color: #fff;
+  display: inline-block;
+  width: auto;
+  padding: 10px 30px;
+  margin-top: 20px;
 }
 
 /* @media(max-width:768px){
