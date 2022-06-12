@@ -224,6 +224,60 @@ INSERT INTO `log_activity` VALUES (1,'Update Data','Perusahaan',1,'Tokopedia 1',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `nasabah`
+--
+
+DROP TABLE IF EXISTS `nasabah`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nasabah` (
+  `nomor_kartu` int(15) NOT NULL,
+  `pin` int(6) DEFAULT NULL,
+  `nama` varchar(32) DEFAULT NULL,
+  `saldo` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`nomor_kartu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nasabah`
+--
+
+LOCK TABLES `nasabah` WRITE;
+/*!40000 ALTER TABLE `nasabah` DISABLE KEYS */;
+INSERT INTO `nasabah` VALUES (1111,1111,'ilham',500000.00);
+/*!40000 ALTER TABLE `nasabah` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transaksi`
+--
+
+DROP TABLE IF EXISTS `transaksi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaksi` (
+  `id_trans` int(4) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) DEFAULT NULL,
+  `nomor_kartu` int(15) DEFAULT NULL,
+  `tanggal_mulai` datetime DEFAULT NULL,
+  `tanggal_akhir` datetime DEFAULT NULL,
+  `jumlah` int(15) DEFAULT NULL,
+  PRIMARY KEY (`id_trans`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+LOCK TABLES `transaksi` WRITE;
+/*!40000 ALTER TABLE `transaksi` DISABLE KEYS */;
+INSERT INTO `transaksi` VALUES (1,'Rhz123',1111,'2022-06-12 21:14:53','2022-07-12 21:14:53',75000),(2,'Rhz123',1111,'2022-06-12 21:16:35','2023-06-12 21:16:35',120000);
+/*!40000 ALTER TABLE `transaksi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -238,7 +292,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +301,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'rhizkaka@nomail.com','Rhz123',1,'$2y$10$opyfCuiWnQ.O505L4Ex3nuwp1woa/eEfnEw..H14pdMdsk5p8rqGK','2022-06-01 23:58:18');
+INSERT INTO `users` VALUES (1,'rhizkaka@nomail.com','Rhz123',1,'$2y$10$opyfCuiWnQ.O505L4Ex3nuwp1woa/eEfnEw..H14pdMdsk5p8rqGK','2022-06-01 23:58:18'),(2,'rhizkoka@nomail.com','AdmRhizka',2,'$2y$10$2Ei7NPYZV93ymTJWkrZe6ezzWeAyqreEDfBJmrThGt6UCUn6TMaIq','2022-06-12 21:02:02');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -260,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-12 20:45:03
+-- Dump completed on 2022-06-12 21:18:22

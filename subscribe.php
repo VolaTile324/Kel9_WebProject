@@ -1,8 +1,7 @@
 <?php
 // Session start
 session_start();
-$connect = mysqli_connect("localhost", "root", "") or die ("Koneksi DBMS Gagal");
-mysqli_select_db($connect, "stack_login") or die("Koneksi ke Database Login Gagal");
+include 'dbconnect.php';
 
   
 // Condition if not logged in, redirect to login page
@@ -23,7 +22,7 @@ if (isset($_POST["subscribe"])){
     $pin = $_POST["pin"];
     $type = $_POST["type-subs"];
 
-    $query = mysqli_query($connect, "SELECT * FROM nasabah WHERE nomor_kartu = '$card_number' AND pin = '$pin'");
+    $query = mysqli_query($conn, "SELECT * FROM nasabah WHERE nomor_kartu = '$card_number' AND pin = '$pin'");
     $numrows=mysqli_num_rows($query);
         if($numrows === 1){       
             while($row=mysqli_fetch_assoc($query)){
@@ -34,9 +33,9 @@ if (isset($_POST["subscribe"])){
             }
                 //cek card number dan pin
                 if($card_number == $db_card_number && $pin == $db_pin){
-                        $query_subs = mysqli_query($connect, "CALL subscribe('$username', '$card_number', '$pin', '$type', @pesan)");
+                        $query_subs = mysqli_query($conn, "CALL subscribe('$username', '$card_number', '$pin', '$type', @pesan)");
                         if($query_subs){
-                            $result = mysqli_query($connect, "SELECT @pesan as pesan");
+                            $result = mysqli_query($conn, "SELECT @pesan as pesan");
                             $hasil_trans = mysqli_fetch_assoc($result);
                             $pesan = $hasil_trans['pesan'];
                             $_SESSION['pesan'] = $hasil_trans['pesan'];

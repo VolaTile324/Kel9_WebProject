@@ -7,6 +7,9 @@ session_start();
 if (!isset($_SESSION['session_user'])) {
     header("Location: login.php");
 }
+else if($_SESSION['user_type'] != 2) {
+    header("Location: index.php");
+}
   
 // Logout
 if (isset($_GET['logout'])) {
