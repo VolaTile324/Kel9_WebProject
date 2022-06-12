@@ -7,6 +7,13 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+#errormsg {
+	color: #222433;
+	font-size: 13px;
+	margin: auto;
+	display: inline-block;
+}
+
 :root {
 	/* Variabel Warna */
 	--primary-color: #0b6ce3;
@@ -30,7 +37,7 @@
 /*==================================*/
 body {
 	min-height: 100vh;
-	background-color: var(--primary-color);
+	/* background-color: var(--primary-color); */
 }
 
 /* Variabel Warna untuk DARK MODE*/
@@ -164,12 +171,12 @@ body.dark li a:hover:before {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--black-light-color);
+	color: var(--text-color);
 }
 .menu-items li a .link-name {
 	font-size: 18px;
 	font-weight: 400;
-	color: var(--black-light-color);
+	color: var(--text-color);
 	transition: var(--tran-05);
 }
 nav.close li a .link-name {
@@ -391,6 +398,7 @@ nav.close ~ .dashboard .top {
 	display: flex;
 	flex-direction: column;
 	margin: 0 15px;
+	margin-top: 10px;
 }
 .activity-data .data-title {
 	font-size: 20px;
@@ -404,7 +412,10 @@ nav.close ~ .dashboard .top {
 	white-space: nowrap;
 	color: var(--text-color);
 }
-
+table {
+	width: 100%;
+	table-layout: fixed;
+}
 /*============== Responsive View ===============*/
 
 @media (max-width: 1000px) {
@@ -419,16 +430,14 @@ nav.close ~ .dashboard .top {
 		pointer-events: none;
 	}
 	nav.close .logo_name {
-		opacity: 1;
-		pointer-events: auto;
+		opacity: 100%;
 	}
 	nav li a .link-name {
 		opacity: 0;
 		pointer-events: none;
 	}
 	nav.close li a .link-name {
-		opacity: 1;
-		pointer-events: auto;
+		opacity: 100%;
 	}
 	nav ~ .dashboard {
 		left: 73px;
@@ -504,4 +513,10 @@ nav.close ~ .dashboard .top {
 	.dashboard .top .sidebar-toggle {
 		display: none;
 	}
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

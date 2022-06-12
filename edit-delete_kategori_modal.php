@@ -8,18 +8,18 @@
                                 <h3 class="modal-title">Edit Data</h3>
                               </div>
                               <div class="modal-body">
-                                <form action="edit-kategori.php" method="post" role="form">
+                                <form action="edit-kategori.php" method="post" role="form" onSubmit="return editcekKat()">
                                   
                                   <div class="form-group">
                                     <div class="row">
                                       <label class="col-sm-3 control-label text-right">Id Kategori <span class="text-red">*</span></label>         
-                                      <div class="col-sm-8"><input type="text" class="form-control" name="id_kategori" placeholder="Id Kategori" value="<?php echo $row['id_kategori']; ?>" readonly></div>
+                                      <div class="col-sm-8"><input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Id Kategori" value="<?php echo $row['id_kategori']; ?>" readonly></div>
                                     </div>
                                   </div>
                                   <div class="form-group">
                                     <div class="row">
                                       <label class="col-sm-3 control-label text-right">Nama <span class="text-red">*</span></label>
-                                      <div class="col-sm-8"><input type="text" class="form-control" name="nama_kategori" placeholder="Nama" value="<?php echo $row['nama_kategori']; ?>"></div>
+                                      <div class="col-sm-8"><input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Nama" value="<?php echo $row['nama_kategori']; ?>" required></div>
                                     </div>
                                   </div>
                                   <div class="modal-footer">
@@ -54,3 +54,18 @@
                           </div>
                         </div>
                       </div><!-- modal delete -->
+
+                      <!-- Script validasi form -->
+                      <script>
+                        function editcekKat(){
+                        var nama_kategori = document.getElementById('nama_kategori').value;
+                        var setMessage = document.getElementById('errormsg');
+                        if(nama_kategori == ''){
+                          setMessage.innerHTML = 'Nama kategori tidak boleh kosong';
+                          return false;
+                        }
+                        else{
+                          return true;
+                        }
+                      }
+                      </script>

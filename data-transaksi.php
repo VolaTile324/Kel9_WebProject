@@ -38,14 +38,15 @@ if (isset($_GET['logout'])) {
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
+        
         
         <!----===== Title ===== -->
         <title>Admin Panel | Seek Stack</title>
 	</head>
 
     <body>
-    <?php include 'nav-admin.php'; ?>
+
+        <?php include 'nav-admin.php'; ?>
 
 
         
@@ -79,26 +80,25 @@ if (isset($_GET['logout'])) {
                 <div class="activity">
                     <div class="title">
                         <i class="uil uil-clock-three"></i>
-                        <span class="text">Daftar Kategori</span>
+                        <span class="text">Riwayat Transaksi Client</span>
                     </div>
-                    <div class="box-tools pull-left">
-                    <a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah</a>
-                    </div>
-                    
                     <script>
                         $(document).ready(function(){
                             $('#dataTable').DataTable();
                         });
                     </script>
-                    
                     <div class="activity-data">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="dataTable" style="width:100%" cellspacing="0">
-                                <thead>
+                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
                                     <tr>
-                                        <th  style="text-align: center;">ID Kategori</th>
-                                        <th  style="text-align: center;">Nama Kategori</th>
-                                        <th  style="text-align: right;">Aksi</th>
+                                        
+                                        <th  style="text-align: left;">ID Transaksi</th>
+                                        <th  style="text-align: left;">Client</th>
+                                        <th  style="text-align: left;">No Kartu</th>
+                                        <th  style="text-align: left;">Tanggal Langganan</th>
+                                        <th  style="text-align: left;">Tanggal Berakhir</th>
+                                        <th  style="text-align: left;">Biaya</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -106,32 +106,30 @@ if (isset($_GET['logout'])) {
                                     <div class="data email"></div>
                                     <?php 
                                        
-                                        $query = mysqli_query($conn, "SELECT * FROM daftar_kategori");
+                                        $query = mysqli_query($conn, "SELECT * FROM transaksi");
                                         while($row = $query->fetch_assoc()){
                                           echo 
                                           "<tr>
-                                          <td>".$row['id_kategori']."</td>
-                                          <td>".$row['nama_kategori']."</td>
-                                          <td>
-                                          <a href='#edit_".$row['id_kategori']."' class='btn btn-success btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-edit'></span> Edit</a>
-                                          <a href='#delete_".$row['id_kategori']."' class='btn btn-danger btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span> Delete</a>
-                                          </td>
+                                          <td>".$row['id_trans']."</td>
+                                          <td>".$row['username']."</td>
+                                          <td>".$row['nomor_kartu']."</td>
+                                          <td>".$row['tanggal_mulai']."</td>
+                                          <td>".$row['tanggal_akhir']."</td>
+                                          <td>".$row['jumlah']."</td>
                                           </tr>";
-                                           include('edit-delete_kategori_modal.php');
+                                           
                                          }               
-                                         ?>                   
+                                         ?>           
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                      
+                       
                 </div>
             </div>
         </section>
-        <?php include('add-kategori-modal.php') ?>
     
         <script type="text/javascript" src="js/admin.js"></script>
         
-                  
     </body>
 </html>
