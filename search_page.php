@@ -65,148 +65,46 @@ if (isset($_GET['logout'])) {
             <div class="container">
                 <div class="banner-main">
                     <img src="image/banner-searchpage.jpg" alt="banner" />
+                    <form action="search_page.php" method="post">
                     <div class="search-box">
-                        <div class="dropdown-menu" onclick="showDropdown()">
-                            <div id="dropdown-default">Categories</div>
-                            <div id="dropdown-list">
-                                <ul>
-                                    <li onclick="setBlog()">Blog</li>
-                                    <li onclick="setForum()">Forum</li>
-                                    <li onclick="setNews()">News</li>
-                                    <li onclick="setShopping()">Shopping</li>
-                                    <li onclick="setTravel()">Travel</li>
-                                </ul>
+                        <div class="dropdown-menu">
+                            <div id="dropdown-default">
+                                <select class="kategori-select" name="kategori">
+                                    <option value="0">Select Category</option>
+                                    <?php
+                                        $category_sql = "SELECT * FROM daftar_kategori";
+                                        $result = mysqli_query($conn, $category_sql);
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="'.$row['nama_kategori'].'">'.$row['nama_kategori'].'</option>';
+                                        }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="search-form">
-                            <input id="search-input" type="text" placeholder="Search for..." value=""/>
-                            <i class="fa fa-search" onclick="initSearch()"></i>
-                        </div>    
+                                <input id="search-input" type="text" name="search" placeholder="Search for..." value=""/>
+                        </div>
+                        <button class="search-btn" type="submit">Search</button>    
                     </div>
-                </div>
-            </div>
-
-            <div id="modal-idn" class="modal" onclick="closeModal()">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <div class="modal-pic-style">
-                        <img src="image/logo/idn_times.png" alt="modal-idn-picture" />
-                    </div>
-                    <h1>IDN Times</h1>
-                    <p>
-                        IDN Times is a leading Indonesia news media, 
-                        publishing news and information on the latest events in Indonesia.
-                        <br><br>
-                        It was founded in 2014 from parent organization of IDN Media, 
-                        usually consisting news closely related to Millenials and Gen-Z.
-                    </p>
-                    <button class="modal-company-btn">Learn More</button>
-                </div>
-            </div>
-
-            <div id="modal-tokopedia" class="modal" onclick="closeModal()">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <div class="modal-pic-style">
-                        <img src="image/logo/tokopedia.png" alt="modal-tokopedia-picture" />
-                    </div>
-                    <h1>Tokopedia</h1>
-                    <p>
-                        Tokopedia is an online marketplace that allows people to shop their favorite 
-                        items easily through the Internet.
-                        <br><br>
-                        It was founded in 2009 by William Tanuwijaya, this online marketplace recently 
-                        merged with Gojek, forming the new enterprise known as GoTo Group.
-                    </p>
-                    <button class="modal-company-btn">Learn More</button>
-                </div>
-            </div>
-
-            <div id="modal-gojek" class="modal" onclick="closeModal()">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <div class="modal-pic-style">
-                        <img src="image/logo/gojek.png" alt="modal-gojek-picture" />
-                    </div>
-                    <h1>Gojek</h1>
-                    <p>
-                        Gojek is an online delivery service that connects people with goods and services 
-                        through motorcycle transport.
-                        <br><br>
-                        It was founded in 2010 by Nadiem Makarim, Gojek adopted Super App model, providing
-                        even more services not only as delivery services, but also online payment.
-                    </p>
-                    <button class="modal-company-btn">Learn More</button>
+                    </form>
                 </div>
             </div>
             
-            <!-- <div class="result-background">
-                <div class="result-wrapper" id="entry1-idntimes">
-                    <div class="result-img">
-                        <img src="image/logo/idn_times.png" alt="result-img" />
-                    </div>
-                    <div class="result-content">
-                        <div class="result-title" onclick="openModalIDN()">IDN Times</div>
-                            <a href="#" class="result-tags">Blog</a>
-                            <a href="#" class="result-tags">News</a>
-                            <p>
-                                IDN Times is a leading Indonesian news media, 
-                                publishing news and information on the latest events in Indonesia.
-                            </p>
-                            <div class="result-assets">
-                                <img src="image/asset/atom.png" alt="result-assets-1" />
-                                <img src="image/asset/git.png" alt="result-assets-2" />
-                                <img src="image/asset/instagram.png" alt="result-assets-3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-wrapper" id="entry2-tokopedia">
-                    <div class="result-img">
-                        <img src="image/logo/tokopedia.png" alt="result-img" />
-                    </div>
-                    <div class="result-content">
-                        <div class="result-title" onclick="openModalTokopedia()">Tokopedia</div>
-                            <a href="#" class="result-tags">Shopping</a>
-                            <p>
-                                Tokopedia is a leading online marketplace for Indonesia's 
-                                largest and fastest growing retail market.
-                            </p>
-                            <div class="result-assets">
-                                <img src="image/asset/atom.png" alt="result-assets-1" />
-                                <img src="image/asset/git.png" alt="result-assets-2" />
-                                <img src="image/asset/instagram.png" alt="result-assets-3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-wrapper" id="entry3-gojek">
-                    <div class="result-img">
-                        <img src="image/logo/gojek.png" alt="result-img" />
-                    </div>
-                    <div class="result-content">
-                        <div class="result-title" onclick="openModalGojek()">Gojek</div>
-                            <a href="#" class="result-tags">Travel</a>
-                            <a href="#" class="result-tags">Shopping</a>
-                            <p>
-                                Gojek is a leading online transportation for Indonesia's 
-                                daily transportation and delivery needs.
-                            </p>
-                            <div class="result-assets">
-                                <img src="image/asset/atom.png" alt="result-assets-1" />
-                                <img src="image/asset/git.png" alt="result-assets-2" />
-                                <img src="image/asset/instagram.png" alt="result-assets-3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                            onclick="openModal'.$row['id'].'()"
-            </div> -->
             <div class="result-background">
                 <?php
-                    $search_query = "SELECT * FROM daftar_perusahaan";
+                    if(isset($_POST['search']) && isset($_POST['kategori'])){
+                        $search = $_POST['search'];
+                        $kategori = $_POST['kategori'];
+                        if($kategori == 0){
+                            $search_query = "SELECT * FROM daftar_perusahaan WHERE nama LIKE '%$search%'";
+                        }
+                        else{
+                            $search_query = "SELECT * FROM daftar_perusahaan WHERE nama LIKE '%$search%' AND kategori LIKE '%$kategori%'";
+                        }
+                    }
+                    else{
+                        $search_query = "SELECT * FROM daftar_perusahaan";
+                    }
                     $search_result = mysqli_query($conn, $search_query);
                     while($row = mysqli_fetch_array($search_result)){
                         echo '
@@ -214,9 +112,8 @@ if (isset($_GET['logout'])) {
                                 <div class="result-img">
                                     <img src="image/logo/'.$row['logo'].'" alt="result-img" />
                                 </div>
-                                
                                 <div class="result-content">
-                                    <div class="result-title">'.$row['nama'].'</div>
+                                    <div class="result-title" onclick="openModal'.$row['id_perusahaan'].'()">'.$row['nama'].'</div>
                                         <a href="#" class="result-tags">'.$row['kategori'].'</a>
                                         <p>
                                             '.$row['deskripsi'].'
@@ -228,6 +125,31 @@ if (isset($_GET['logout'])) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        ';
+
+                        echo '
+                            <div id="modal-'.$row['id_perusahaan'].'" class="modal">
+                                <div class="modal-content">
+                                    <span class="close" onclick="closeModal'.$row['id_perusahaan'].'()">&times;</span>
+                                    <div class="modal-pic-style">
+                                        <img src="image/logo/'.$row['logo'].'" alt="modal-'.$row['id_perusahaan'].'-picture" />
+                                    </div>
+                                    <h1>'.$row['nama'].'</h1>
+                                    <p>
+                                        '.$row['deskripsi'].'
+                                    </p>
+                                    <button class="modal-company-btn">Learn More</button>
+                                </div>
+                            </div>
+                            <script>
+                                function openModal'.$row['id_perusahaan'].'() {
+                                    document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "block";
+                                }
+                                function closeModal'.$row['id_perusahaan'].'() {
+                                    document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "none";
+                                }
+                            </script>
                         ';
                     }
                 ?>
@@ -248,7 +170,6 @@ if (isset($_GET['logout'])) {
                </div>
            </div>
        </footer>
-
        <script src="js/search-filter.js"></script>
     </body>
 </html>

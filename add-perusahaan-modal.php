@@ -45,6 +45,21 @@
                                       <div class="col-sm-8"><input type="text" class="form-control" name="status" placeholder="status"></div>
                                     </div>
                                   </div>
+                                  <div class="form-group">
+                                    <div class="row">
+                                      <label class="col-sm-3 control-label text-right">Kategori <span class="text-red">*</span></label>
+                                      <div class="col-sm-8">
+                                        <select class="form-control" name="kategori">
+                                          <?php
+                                            $kategori_sql = "SELECT * FROM daftar_kategori";
+                                            $result_kategori = mysqli_query($conn, $kategori_sql);
+                                            while ($row = mysqli_fetch_assoc($result_kategori)) {
+                                              echo "<option value='".$row['nama_kategori']."'>".$row['nama_kategori']."</option>";
+                                            }
+                                          ?>
+                                        </select>
+                                    </div>
+                                  </div>
                                   <div class="modal-footer">
                                     <button id="noedit" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
                                     <input type="submit" name="submit" class="btn btn-primary" value="Insert">

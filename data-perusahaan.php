@@ -164,9 +164,11 @@ if (isset($_GET['logout'])) {
                                     <tr>
                                         
                                         <th  style="text-align: center;">ID Perusahaan</th>
+                                        <th  style="text-align: center;">Logo</th>
                                         <th  style="text-align: center;">Nama Perusahaan</th>
                                         <th  style="text-align: center;">Pemilik</th>
                                         <th  style="text-align: center;">Deskripsi</th>
+                                        <th  style="text-align: center;">Kategori</th>
                                         <th  style="text-align: center;">Status</th>
                                         <th  style="text-align: right;">Aksi</th>
                                     </tr>
@@ -181,9 +183,11 @@ if (isset($_GET['logout'])) {
                                           echo 
                                           "<tr>
                                           <td>".$row['id_perusahaan']."</td>
+                                            <td><img src='image/logo/".$row['logo']."' width='50' height='50'></td>
                                           <td>".$row['nama']."</td>
                                           <td>".$row['pemilik']."</td>
                                           <td>".$row['deskripsi']."</td>
+                                          <td>".$row['kategori']."</td>
                                           <td>".$row['status_perusahaan']."</td>
                                           <td>
                                           <a href='#edit_".$row['id_perusahaan']."' class='btn btn-success btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-edit'></span> Edit</a>
