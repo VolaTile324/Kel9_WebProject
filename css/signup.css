@@ -1,7 +1,6 @@
 .signup-header{
     font-size: 30px;
-    margin-bottom: auto;
-    padding: 0px 0px 30px 0px;
+    margin: 0 0 32px;
     color: #313244;
     text-align: center;
 }
@@ -14,27 +13,48 @@
     background-color: white;
     border-radius: 7px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    padding: 30px 50px 55px 50px;
+    padding: 25px;
     margin: auto;
 }
 
-.signup-container label{
+.input-box{
+  position: absolute;
+  align-items: center;
+  padding: 0;
+}
+
+.input-field input{
+  width: 100%;
+  border: 1px solid #313244; 
+  box-sizing: border-box; 
+  border-radius: 8px; 
+  height: 43px;
+  padding-left: 40px;
+  margin-right: 0;
+  font-size: 16px;
+  font-family: Poppins;
+}
+
+.input-field .icon{
+  position: absolute;
+  left: 40px;
+  transform: translateY(-140%);
+}
+
+.input-field{
+  margin-top: 20px;
+  width: 100%;
+}
+
+.signup-container form{
+  margin: 0;
+}
+
+
+/* .input-field label{
     display: contents;
-}
+} */
 
-.signup-container input{
-    border: 1px solid #313244; 
-    box-sizing: border-box; 
-    border-radius: 8px;
-    height: 43px;
-    width: 100%;
-    padding: 0px 38px 0px 38px;
-}
-
-.padding-form {
-    padding: 0 38 0 38;
-    font-size: 2opx;
-  }
 
 a{
     text-decoration: none;
@@ -52,6 +72,7 @@ a{
   font-family: Poppins;
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 25px;
 }
 
 #pwmessage{
@@ -67,6 +88,47 @@ a{
     bottom: 0;
 }
 
+.login-box{
+  text-align: center;
+}
+
+.login-box a{
+  color: #545569;
+}
+
+.login-box a:hover{
+  color: #8F91AB;
+}
+
+.regis-success{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  flex-direction: column;
+}
+
+.regis-success p{
+  font-size: 24px;
+}
+
+.regis-success a{
+  color: #fff;
+  display: inline-block;
+  width: auto;
+  padding: 10px 30px;
+  margin-top: 20px;
+}
+
+/* @media(max-width:768px){
+  .footer-content{
+    position: absolute;
+  }
+}
+
+
+
 @media only screen and (max-width: 1024px) {
     .signup-container {
       width: 40%;
@@ -80,4 +142,12 @@ a{
     .signup-container {
       width: 65%;
     }
-}
+
+} */
+
+
+/* @media(max-width: 767px){
+  .footer-content{
+    width: 50%;
+  }
+} */
