@@ -121,6 +121,14 @@
                     background-color: #FAFAFB;
                 }
 
+                .result-background h2 {
+                    text-align: center;
+                    font-size: 20px;
+                    font-family: Poppins;
+                    color: #425465;
+                    padding-left: 10px;
+                }
+
                 .result-wrapper {
                     background-color:#F1F3F5;
                     border: 2px solid #E4E7EC;

@@ -157,11 +157,9 @@ if (isset($_GET['logout'])) {
                         <p>RP.<span class="price-nominal"> 75</span> <sup>.000</sup></p>
                             <div class="list-price">
                                 <ul class="unchecked-list">
-                                    <li>Lorem Ipsum Dolor sit amet.</li>
-                                    <li>Lorem Ipsum Dolor sit amet consectetur.</li>
-                                    <li>Lorem Ipsum Dolor sit amet elit.</li>
-                                    <li>Lorem Ipsum Dolor sit amet proin vitae.</li>
-                                    <li>Lorem Ipsum Dolor sit amet. Eros dui.</li>
+                                    <li>Ideal for getting started</li>
+                                    <li>All access to company info</li>
+                                    <li>Analytics included</li>
                                 </ul>
                             </div>
                             <a href="subscribe.php" class="button-get-started" id="button-monthly">Get Started</a>
@@ -172,11 +170,9 @@ if (isset($_GET['logout'])) {
                         <p>RP.<span class="price-nominal"> 120</span> <sup>.000</sup></p>
                             <div class="list-price">
                                 <ul class="checked-list">
-                                    <li>Lorem Ipsum Dolor sit amet.</li>
-                                    <li>Lorem Ipsum Dolor sit amet consectetur.</li>
-                                    <li>Lorem Ipsum Dolor sit amet elit.</li>
-                                    <li>Lorem Ipsum Dolor sit amet proin vitae.</li>
-                                    <li>Lorem Ipsum Dolor sit amet. Eros dui.</li>    
+                                    <li>Ideal for long-term plan</li>
+                                    <li>Best discount offer</li>
+                                    <li>More detailed analytics</li>
                                 </ul>
                             </div>
                             <a href="subscribe.php" class="button-get-started" id="button-yearly">Get Started</a>

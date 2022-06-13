@@ -65,7 +65,7 @@ if (isset($_GET['logout'])) {
             <div class="container">
                 <div class="banner-main">
                     <img src="image/banner-searchpage.jpg" alt="banner" />
-                    <form action="search_page.php" method="post">
+                    <form action="search_page.php" method="get">
                     <div class="search-box">
                         <div class="dropdown-menu">
                             <div id="dropdown-default">
@@ -92,76 +92,88 @@ if (isset($_GET['logout'])) {
             
             <div class="result-background">
                 <?php
-                    if(isset($_POST['search']) && isset($_POST['kategori'])){
-                        $search = $_POST['search'];
-                        $kategori = $_POST['kategori'];
+                    if(isset($_GET['search']) && isset($_GET['kategori'])){
+                        $search = $_GET['search'];
+                        $kategori = $_GET['kategori'];
                         if($kategori == 0){
                             $search_query = "SELECT * FROM daftar_perusahaan WHERE nama LIKE '%$search%'";
+                            echo '<h2>Search Result for "'.$search.'"</h2>';
                         }
                         else{
                             $search_query = "SELECT * FROM daftar_perusahaan WHERE nama LIKE '%$search%' AND kategori LIKE '%$kategori%'";
+                            if($search == ""){
+                                echo '<h2>Search Result for "'.$kategori.'"</h2>';
+                            }
+                            else{
+                                echo '<h2>Search Result for "'.$search.'" in "'.$kategori.'"</h2>';
+                            }
                         }
                     }
                     else{
                         $search_query = "SELECT * FROM daftar_perusahaan";
                     }
                     $search_result = mysqli_query($conn, $search_query);
-                    while($row = mysqli_fetch_array($search_result)){
-                        echo '
-                            <div class="result-wrapper" id="entry'.$row['id_perusahaan'].'">
-                                <div class="result-img">
-                                    <img src="image/logo/'.$row['logo'].'" alt="result-img" />
-                                </div>
-                                <div class="result-content">
-                                    <div class="result-title" onclick="openModal'.$row['id_perusahaan'].'()">'.$row['nama'].'</div>
-                                        <a href="#" class="result-tags">'.$row['kategori'].'</a>
-                                        <p>
-                                            '.$row['deskripsi'].'
-                                        </p>
-                                        <div class="result-assets">
-                                            <img src="image/asset/atom.png" alt="result-assets-1" />
-                                            <img src="image/asset/git.png" alt="result-assets-2" />
-                                            <img src="image/asset/instagram.png" alt="result-assets-3" />
+                    if (mysqli_num_rows($search_result) > 0) {
+                        while($row = mysqli_fetch_array($search_result)){
+                            echo '
+                                <div class="result-wrapper" id="entry'.$row['id_perusahaan'].'">
+                                    <div class="result-img">
+                                        <img src="image/logo/'.$row['logo'].'" alt="result-img" />
+                                    </div>
+                                    <div class="result-content">
+                                        <div class="result-title" onclick="openModal'.$row['id_perusahaan'].'()">'.$row['nama'].'</div>
+                                            <a href="search_page.php?kategori='.$row['kategori'].'&search=" class="result-tags">'.$row['kategori'].'</a>
+                                            <p>
+                                                '.$row['deskripsi'].'
+                                            </p>
+                                            <div class="result-assets">
+                                                <img src="image/asset/atom.png" alt="result-assets-1" />
+                                                <img src="image/asset/git.png" alt="result-assets-2" />
+                                                <img src="image/asset/instagram.png" alt="result-assets-3" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ';
+                            ';
 
-                        echo '
-                            <div id="modal-'.$row['id_perusahaan'].'" class="modal">
-                                <div class="modal-content">
-                                    <span class="close" onclick="closeModal'.$row['id_perusahaan'].'()">&times;</span>
-                                    <div class="modal-pic-style">
-                                        <img src="image/logo/'.$row['logo'].'" alt="modal-'.$row['id_perusahaan'].'-picture" />
+                            echo '
+                                <div id="modal-'.$row['id_perusahaan'].'" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close" onclick="closeModal'.$row['id_perusahaan'].'()">&times;</span>
+                                        <div class="modal-pic-style">
+                                            <img src="image/logo/'.$row['logo'].'" alt="modal-'.$row['id_perusahaan'].'-picture" />
+                                        </div>
+                                        <h1>'.$row['nama'].'</h1>
+                                        <div class="modal-info">
+                                            <p>
+                                                <b>Kategori</b><br>'.$row['kategori'].'
+                                            </p>
+                                            <p>
+                                                <b>Pemilik</b><br>'.$row['pemilik'].'
+                                            </p>
+                                            <p>
+                                                <b>Status</b><br>'.$row['status_perusahaan'].'
+                                            </p>
+                                        </div>
+                                        <p>
+                                            '.$row['deskripsi'].'
+                                        </p>
+                                        <button class="modal-company-btn">Learn More</button>
                                     </div>
-                                    <h1>'.$row['nama'].'</h1>
-                                    <div class="modal-info">
-                                        <p>
-                                            <b>Kategori</b><br>'.$row['kategori'].'
-                                        </p>
-                                        <p>
-                                            <b>Pemilik</b><br>'.$row['pemilik'].'
-                                        </p>
-                                        <p>
-                                            <b>Status</b><br>'.$row['status_perusahaan'].'
-                                        </p>
-                                    </div>
-                                    <p>
-                                        '.$row['deskripsi'].'
-                                    </p>
-                                    <button class="modal-company-btn">Learn More</button>
                                 </div>
-                            </div>
-                            <script>
-                                function openModal'.$row['id_perusahaan'].'() {
-                                    document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "block";
-                                }
-                                function closeModal'.$row['id_perusahaan'].'() {
-                                    document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "none";
-                                }
-                            </script>
-                        ';
+                                <script>
+                                    function openModal'.$row['id_perusahaan'].'() {
+                                        document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "block";
+                                    }
+                                    function closeModal'.$row['id_perusahaan'].'() {
+                                        document.getElementById("modal-'.$row['id_perusahaan'].'").style.display = "none";
+                                    }
+                                </script>
+                            ';
+                        }
+                    }
+                    else {
+                        echo '<h2>No Result Found</h2>';
                     }
                 ?>
             </div>
